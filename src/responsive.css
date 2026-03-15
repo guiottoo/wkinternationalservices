@@ -1,0 +1,311 @@
+/* ═══════════════════════════════════════════════════════════════
+   responsive.css — all media queries for the WK site
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Large desktop (> 1280px) ─────────────────────────────────── */
+@media (min-width: 1280px) {
+  .hero-left { flex: 0 1 580px; }
+}
+
+/* ── Small desktop / tablet landscape (≤ 1024px) ─────────────── */
+@media (max-width: 1024px) {
+  :root {
+    --nav-max:  900px;
+    --hero-max: 960px;
+    --side-pad: 22px;
+  }
+
+  /* Terra maior, deslocada à direita, opacidade reduzida */
+  .hero-right {
+    position: absolute;
+    top: 0;
+    right: -12vw;      /* empurra para além da borda direita */
+    bottom: 0;
+    left: auto;
+    width: 68%;
+    height: 100%;
+    opacity: 0.5;
+  }
+
+  .earthside-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+  }
+
+  .hero-left { width: 44%; max-width: 420px; }
+}
+
+/* ── Tablet portrait (≤ 768px) ────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Hero: texto centralizado, terra reposicionada */
+  .section-hero {
+    min-height: 100vh;
+  }
+
+  /* Terra muito maior, deslocada à direita, opacidade reduzida */
+  .hero-right {
+    position: absolute;
+    bottom: -10vw;
+    left: -5vw;        /* deslocada para a direita (centro seria -60vw para 220vw) */
+    top: auto;
+    right: auto;
+    width: 220vw;
+    height: calc(220vw * 1080 / 1317);
+    pointer-events: none;
+    overflow: visible;
+    opacity: 0.5;
+  }
+
+  .earthside-img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    opacity: 1;        /* opacidade já no container .hero-right */
+  }
+
+  .hero-layout {
+    padding: 1.8rem var(--side-pad) 100vw;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(4rem, 10vw, 6rem);
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 2.6vw, 1.4rem);
+    max-width: 72%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center !important;
+  }
+
+  .btn-cta {
+    padding: 16px 48px;
+    font-size: 1rem;
+  }
+
+  .services-dropdown {
+    left: 0;
+    transform: none;
+  }
+
+  @keyframes dropIn {
+    from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);    }
+  }
+
+  /* QuemSomos: foto abaixo do texto */
+  .section2-body .section2-left  { order: 1; }
+  .section2-body .section2-right { order: 2; }
+
+  /* Stats — menores no tablet */
+  .stat-value { font-size: clamp(2rem, 5vw, 3rem); }
+  .stat-label { font-size: clamp(0.75rem, 1.8vw, 0.9rem); }
+}
+
+/* ── Phone (≤ 540px) — hero compacto com terra deslocada ────── */
+@media (max-width: 540px) {
+  .section-hero {
+    min-height: 70vh;
+    max-height: 70vh;
+    height: 70vh;
+  }
+
+  .hero-right {
+    position: absolute;
+    bottom: -8vh;
+    left: -20vw;
+    top: auto;
+    right: auto;
+    width: 280vw;
+    height: calc(280vw * 1080 / 1317);
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .earthside-img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    opacity: 0.4;
+  }
+
+  .hero-layout {
+    padding: 1.8rem var(--side-pad) 26vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: clamp(3.6rem, 15vw, 5.5rem);
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.1rem, 4vw, 1.35rem);
+    max-width: 78%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center !important;
+  }
+
+  .btn-cta {
+    padding: 18px 56px;
+    font-size: 1.05rem;
+  }
+
+  /* Stats — menores no phone */
+  .stat-value { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+  .stat-label { font-size: clamp(0.7rem, 2.6vw, 0.85rem); }
+}
+
+/* ── Section 2 mobile stack ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .section2-body {
+    flex-direction: column;
+  }
+
+  .section2-right {
+    flex: none;
+    width: 100%;
+  }
+
+  .section2-photo {
+    height: 260px;
+  }
+
+  .stat-card {
+    flex: 1 1 calc(50% - 12px);
+  }
+}
+
+/* ── Hamburger aparece a partir de 640px ──────────────────────── */
+@media (max-width: 640px) {
+  .nav-links         { display: none; }
+  .hamburger-wrapper { display: block; }
+}
+
+/* ── Small mobile (≤ 480px) ───────────────────────────────────── */
+@media (max-width: 480px) {
+  :root { --side-pad: 16px; }
+
+  .liquid-glass-nav { padding: 6px 16px; }
+  .nav-logo          { height: 52px; }
+
+  .hero-title    { font-size: clamp(3.4rem, 14vw, 5rem); }
+  .hero-subtitle {
+    font-size: clamp(1rem, 4.2vw, 1.2rem);
+    text-align: center !important;
+    max-width: 84%;
+  }
+
+  .btn-cta {
+    padding: 15px 44px;
+    font-size: 0.95rem;
+    width: auto;
+  }
+
+  .stat-value { font-size: clamp(1.5rem, 9vw, 2rem); }
+  .stat-label { font-size: clamp(0.62rem, 2.8vw, 0.76rem); }
+}
+
+/* ── Extra small (≤ 360px) ────────────────────────────────────── */
+@media (max-width: 360px) {
+  .hero-title    { font-size: 3rem; }
+  .hero-subtitle { font-size: 0.95rem; text-align: center !important; }
+  .stat-value    { font-size: 1.4rem; }
+}
+
+/* ── New sections — tablet & mobile ──────────────────────────── */
+@media (max-width: 900px) {
+  /* Reviews → 2 cols */
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  /* Reviews → 1 col */
+  .reviews-grid { grid-template-columns: 1fr; }
+  .avaliacoes-title { font-size: 2rem; }
+}
+
+@media (max-width: 900px) {
+  /* Contato top → stack, foto aparece abaixo do texto */
+  .contact-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .contact-top-right {
+    display: flex;
+    justify-content: center;
+  }
+  .contact-img {
+    max-width: 260px;
+    width: 100%;
+    border-radius: 16px;
+  }
+  .contact-form-inner { padding: 36px 32px; }
+
+  /* Offices grid → stack */
+  .offices-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer grid → 2 col */
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Contact */
+  .contact-headline { font-size: 1.8rem; }
+  .contact-form-inner { padding: 28px 20px; }
+  .contact-form-grid { grid-template-columns: 1fr; }
+  .contact-form-grid__full { grid-column: 1; }
+  .section-contact { padding: 64px 0 72px; }
+
+  /* Offices */
+  .offices-title { font-size: 2rem; }
+  .office-card__info { padding: 28px 24px 22px; }
+
+  /* Footer */
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 48px var(--side-pad) 40px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  /* QuemSomos section */
+  .section3-body {
+    flex-direction: column;
+  }
+}

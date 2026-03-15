@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  color: #fff;
+  overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* ── Background escuro + estrelas (pontilhismo) ── */
+  background-color: #06080a;
+  background-image:
+    radial-gradient(circle, rgba(150,155,158,0.28) 0.9px,  transparent 0.9px),
+    radial-gradient(circle, rgba(150,155,158,0.16) 0.65px, transparent 0.65px),
+    radial-gradient(circle, rgba(150,155,158,0.20) 0.75px, transparent 0.75px),
+    radial-gradient(circle, rgba(150,155,158,0.10) 1.1px,  transparent 1.1px);
+  background-size:
+    67px  59px,
+    101px 89px,
+    149px 113px,
+    223px 191px;
+  background-position:
+    11px 19px,
+    47px 57px,
+    83px 31px,
+    157px 97px;
+}
