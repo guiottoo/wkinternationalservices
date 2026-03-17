@@ -9,12 +9,14 @@ import Contato      from './components/Contato'
 import Footer       from './components/Footer'
 import ServicePage   from './pages/ServicePage'
 import NossoTimePage from './pages/NossoTimePage'
+import EquipePage    from './pages/EquipePage'
 import BlogPage      from './pages/BlogPage'
+import ContactPage   from './pages/ContactPage'
 import { SERVICE_SLUGS } from './i18n'
 import './App.css'
 import './responsive.css'
 
-const ALL_SLUGS = [...SERVICE_SLUGS, 'nosso-time', 'blog']
+const ALL_SLUGS = [...SERVICE_SLUGS, 'nosso-time', 'equipe', 'blog', 'contato-pagina']
 
 function getSlugFromHash() {
   const hash = window.location.hash.slice(1)
@@ -30,6 +32,11 @@ export default function App() {
     window.addEventListener('hashchange', onHashChange)
     return () => window.removeEventListener('hashchange', onHashChange)
   }, [])
+
+  // Scroll to top on page change
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [slug])
 
   // Global scroll-reveal
   useEffect(() => {
@@ -57,7 +64,9 @@ export default function App() {
     }
   }, [slug])
 
+  if (slug === 'contato-pagina') return <ContactPage lang={lang} setLang={setLang} />
   if (slug === 'nosso-time') return <NossoTimePage lang={lang} setLang={setLang} />
+  if (slug === 'equipe')     return <EquipePage    lang={lang} setLang={setLang} />
   if (slug === 'blog')       return <BlogPage      lang={lang} setLang={setLang} />
   if (slug)                  return <ServicePage   slug={slug} lang={lang} setLang={setLang} />
 

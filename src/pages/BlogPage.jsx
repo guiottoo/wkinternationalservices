@@ -6,57 +6,53 @@ export default function BlogPage({ lang, setLang }) {
   const t = T[lang]
 
   return (
-    <div style={{ minHeight: '100vh', background: '#06080a', display: 'flex', flexDirection: 'column' }}>
+    <div className="blog-page">
 
-      {/* ── Navbar ── */}
-      <div style={{ background: '#06080a' }}>
-        <Navbar lang={lang} setLang={setLang} />
+      <Navbar lang={lang} setLang={setLang} logoDark />
+
+      {/* ── Page title ── */}
+      <div className="blog-page__header">
+        <h1 className="blog-page__title">{t.blog}</h1>
       </div>
 
-      {/* ── Hero band ── */}
-      <div style={{
-        padding: '80px 28px 72px',
-        background: 'linear-gradient(160deg, #0d0d1a 0%, #1a1a3e 55%, #2a2a6e 100%)',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-        gap: 16,
-      }}>
-        <span style={{
-          display: 'inline-block',
-          padding: '6px 18px',
-          background: 'rgba(110,158,240,0.14)',
-          border: '1px solid rgba(110,158,240,0.38)',
-          color: '#6e9ef0',
-          fontSize: '0.7rem',
-          fontWeight: 700,
-          letterSpacing: '0.13em',
-          textTransform: 'uppercase',
-          borderRadius: 999,
-        }}>
-          {t.blog}
-        </span>
-        <h1 style={{ color: '#fff', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 700, margin: 0, letterSpacing: '-0.03em' }}>
-          {t.blog}
-        </h1>
-      </div>
+      {/* ── Posts ── */}
+      <main className="blog-page__main">
 
-      {/* ── Content placeholder ── */}
-      <main style={{
-        flex: 1,
-        maxWidth: 900,
-        margin: '80px auto',
-        padding: '0 28px',
-        color: 'rgba(255,255,255,0.55)',
-        textAlign: 'center',
-        fontSize: '1.1rem',
-        lineHeight: 1.7,
-      }}>
-        <p>Em breve — artigos e novidades sobre imigração no Brasil.</p>
-        <a href="#" style={{ color: '#6e9ef0', fontSize: '0.9rem', textDecoration: 'none', marginTop: 32, display: 'inline-block' }}>
-          ← Voltar
+        {/* Card — CONNECT CAST */}
+        <a
+          href="https://www.youtube.com/watch?v=RHU-jh2tJZw"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="blog-card"
+        >
+          {/* Thumbnail */}
+          <div className="blog-card__thumb">
+            <img
+              src="https://img.youtube.com/vi/RHU-jh2tJZw/maxresdefault.jpg"
+              alt="CONNECT CAST"
+              className="blog-card__thumb-img"
+            />
+            <div className="blog-card__play">
+              <div className="blog-card__play-btn">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M6 4l12 6-12 6V4z" fill="#0d0d0d"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          {/* Text */}
+          <div className="blog-card__body">
+            <span className="blog-card__tag">{t.blogConnectTag}</span>
+            <h2 className="blog-card__title">{t.blogConnectTitle}</h2>
+            <p className="blog-card__desc">{t.blogConnectDesc}</p>
+            <div className="blog-card__author">
+              <div className="blog-card__avatar">WK</div>
+              <span className="blog-card__author-name">Wilian Knoner Campos</span>
+            </div>
+          </div>
         </a>
+
       </main>
 
       <Footer lang={lang} />

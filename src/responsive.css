@@ -232,6 +232,29 @@
   .stat-label { font-size: clamp(0.62rem, 2.8vw, 0.76rem); }
 }
 
+/* ── Team page ────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .team-card--group { height: 260px; }
+  .team-card         { height: 340px; }
+  /* last card: full width on tablet */
+  .team-cards-grid .team-card:last-child { width: 100%; }
+}
+
+@media (max-width: 540px) {
+  /* stack to 1 column on small screens */
+  .team-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .team-cards-grid .team-card:last-child {
+    grid-column: auto;
+    justify-self: stretch;
+    width: 100%;
+  }
+  .team-card--group { height: 220px; }
+  .team-card         { height: 300px; }
+}
+
 /* ── Extra small (≤ 360px) ────────────────────────────────────── */
 @media (max-width: 360px) {
   .hero-title    { font-size: 3rem; }
@@ -252,13 +275,14 @@
 }
 
 @media (max-width: 900px) {
-  /* Contato top → stack, foto aparece abaixo do texto */
+  /* Contato top → stack */
   .contact-top {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
   }
-  .contact-top-right {
-    display: none;
+  .contact-globe,
+  .contact-globe .earth-globe-wrap {
+    width: 280px;
+    height: 280px;
   }
   .contact-form-inner { padding: 36px 32px; }
 
@@ -275,6 +299,12 @@
 }
 
 @media (max-width: 600px) {
+  .contact-globe,
+  .contact-globe .earth-globe-wrap {
+    width: 220px;
+    height: 220px;
+  }
+
   /* Contact */
   .contact-headline { font-size: 1.8rem; }
   .contact-form-inner { padding: 28px 20px; }
@@ -302,4 +332,88 @@
   .section3-body {
     flex-direction: column;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SERVICE PAGES — responsive
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Tablet landscape (≤ 1024px) ─────────────────────────────── */
+@media (max-width: 1024px) {
+  /* Stats: 3 col → mantém, mas padding menor */
+  .svc-page__stats   { padding: 40px var(--side-pad); }
+  .svc-stat-card     { padding: 28px 22px; }
+
+  /* Benefits: 4 col → 2 col */
+  .svc-benefits-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Requirements: cards mais estreitos ficam ok em 3-col grid */
+  .svc-page__requirements { padding: 64px var(--side-pad) 80px; }
+  .svc-page__benefits     { padding: 64px var(--side-pad) 80px; }
+}
+
+/* ── Tablet landscape (≤ 1024px) — CTA two-col stays but smaller */
+@media (max-width: 1024px) {
+  .svc-cta-inner { max-width: 100%; }
+}
+
+/* ── Phone (≤ 540px) ─────────────────────────────────────────── */
+@media (max-width: 540px) {
+  .svc-cta-inner { padding: 64px var(--side-pad); }
+  .svc-page__cta-title { font-size: 1.6rem; }
+}
+
+/* ── Tablet portrait (≤ 768px) ────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Hero */
+  .svc-page__hero         { padding: 48px 0 56px; }
+  .svc-page__hero-content { gap: 12px; }
+
+  /* Stats: 3 col → 1 col com scroll vertical */
+  .svc-stats-inner {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .svc-stat-card { padding: 24px 20px; }
+
+  /* Benefits: 2 col → mantém em tablet portrait */
+  .svc-benefits-grid { gap: 14px; }
+
+  /* Requirements timeline: colapsa para coluna única */
+  .svc-req-timeline__line { display: none; }
+
+  .svc-req-block {
+    grid-template-columns: 1fr;
+    padding: 10px 0;
+  }
+  .svc-req-block__center { display: none; }
+  .svc-req-block__spacer { display: none; }
+
+  .svc-req-block--left  .svc-req-block__card,
+  .svc-req-block--right .svc-req-block__card {
+    padding-left:  0;
+    padding-right: 0;
+  }
+
+  /* Reset translateX → translateY (padrão data-reveal) */
+  .svc-req-block--left  .svc-req-block__card[data-reveal],
+  .svc-req-block--right .svc-req-block__card[data-reveal] {
+    transform: translateY(28px);
+  }
+  .svc-req-block--left  .svc-req-block__card[data-reveal].is-visible,
+  .svc-req-block--right .svc-req-block__card[data-reveal].is-visible {
+    transform: translateY(0);
+  }
+}
+
+/* ── Phone (≤ 540px) ─────────────────────────────────────────── */
+@media (max-width: 540px) {
+  /* Benefits: 2 col → 1 col */
+  .svc-benefits-grid { grid-template-columns: 1fr; }
+
+  .svc-section__title { font-size: 1.5rem; }
+
+  .svc-page__requirements { padding: 48px var(--side-pad) 56px; }
+  .svc-page__benefits     { padding: 48px var(--side-pad) 56px; }
+  .svc-page__stats        { padding: 32px var(--side-pad); }
 }

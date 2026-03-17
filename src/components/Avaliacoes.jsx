@@ -1,11 +1,14 @@
 import { T, REVIEW_TEXTS } from '../i18n'
 
-import av1 from '../assets/av1.png'
-import av2 from '../assets/av2.png'
-import av3 from '../assets/av3.png'
-import av4 from '../assets/av4.png'
-import av5 from '../assets/av5.png'
-import av6 from '../assets/av6.png'
+function UserIcon() {
+  return (
+    <svg className="review-avatar-icon" width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="20" fill="#e8edf5"/>
+      <circle cx="20" cy="16" r="7" fill="#b0bdd0"/>
+      <ellipse cx="20" cy="34" rx="12" ry="8" fill="#b0bdd0"/>
+    </svg>
+  )
+}
 
 /* ── Star SVG ──────────────────────────────────────────────────── */
 function Stars() {
@@ -32,14 +35,14 @@ function GoogleMark() {
   )
 }
 
-/* ── Review static data (img / name / country) ─────────────────── */
+/* ── Review static data (name / country) ─────────────────────── */
 const REVIEW_META = [
-  { img: av1, name: 'Natalia Volkova', country: '🇷🇺 Rússia'    },
-  { img: av2, name: 'Carlos Mendoza',  country: '🇦🇷 Argentina' },
-  { img: av3, name: 'Priya Sharma',    country: '🇮🇳 Índia'     },
-  { img: av4, name: 'Aleksei Petrov',  country: '🇷🇺 Rússia'    },
-  { img: av5, name: 'Sofia Chen',      country: '🇨🇳 China'     },
-  { img: av6, name: 'Marco Rossi',     country: '🇮🇹 Itália'    },
+  { name: 'Natalia Volkova', country: '🇷🇺 Rússia'    },
+  { name: 'Carlos Mendoza',  country: '🇦🇷 Argentina' },
+  { name: 'Priya Sharma',    country: '🇮🇳 Índia'     },
+  { name: 'Aleksei Petrov',  country: '🇷🇺 Rússia'    },
+  { name: 'Sofia Chen',      country: '🇨🇳 China'     },
+  { name: 'Marco Rossi',     country: '🇮🇹 Itália'    },
 ]
 
 /* ── ReviewCard ───────────────────────────────────────────────── */
@@ -47,7 +50,7 @@ function ReviewCard({ review, delay }) {
   return (
     <article className="review-card" data-reveal data-delay={delay}>
       <div className="review-card__top">
-        <img src={review.img} alt={review.name} className="review-avatar" />
+        <UserIcon />
         <div className="review-card__meta">
           <span className="review-name">{review.name}</span>
           <span className="review-country">{review.country}</span>

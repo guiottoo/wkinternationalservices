@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { T } from '../i18n'
-import imigrantesImg from '../assets/imigrantes.png'
+import EarthGlobe from './EarthGlobe'
 
-export default function Contato({ lang }) {
+export default function Contato({ lang, headline, sideGlobe }) {
   const t = T[lang]
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
@@ -40,19 +40,20 @@ export default function Contato({ lang }) {
   return (
     <section id="contato" className="section-contact">
 
-      {/* ── Top: headline left + image right ── */}
-      <div className="contact-top">
+      {/* ── Top: text left + globe right (when no headline) ── */}
+      <div className={`contact-top${!headline ? ' contact-top--side' : ''}`}>
         <div className="contact-left" data-reveal>
-          <span className="contact-badge">{t.contactBadge}</span>
-          <h2 className="contact-headline">{t.contactHeadline}</h2>
-          <p className="contact-sub">{t.contactSub}</p>
-          <p className="contact-free">{t.contactFree}</p>
-          <p className="contact-langs">{t.contactLangs}</p>
+          {!headline && <span className="contact-badge">{t.contactBadge}</span>}
+          <h2 className="contact-headline">{headline || t.contactHeadline}</h2>
+          {!headline && <p className="contact-sub">{t.contactSub}</p>}
+          {!headline && <p className="contact-free">{t.contactFree}</p>}
+          {!headline && <p className="contact-langs">{t.contactLangs}</p>}
         </div>
-
-        <div className="contact-top-right" data-reveal data-delay="1">
-          <img src={imigrantesImg} alt="" className="contact-img" />
-        </div>
+        {!headline && (
+          <div className="contact-globe contact-globe--right" data-reveal data-delay="1">
+            <EarthGlobe />
+          </div>
+        )}
       </div>
 
       {/* ── Form card ── */}

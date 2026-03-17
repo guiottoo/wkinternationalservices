@@ -18,7 +18,7 @@ export default function Hero({ lang, setLang }) {
           <p className="hero-subtitle" data-reveal data-delay="1">
             <strong>{t.heroBold}</strong>{' '}{t.heroBody}
           </p>
-          <a href="#contato" className="btn-cta" data-reveal data-delay="2">{t.learnMore}</a>
+          <a href="#contato-pagina" className="btn-cta" data-reveal data-delay="2">{t.learnMore}</a>
         </div>
       </div>
 
