@@ -12,7 +12,7 @@ import NossoTimePage from './pages/NossoTimePage'
 import EquipePage    from './pages/EquipePage'
 import BlogPage      from './pages/BlogPage'
 import ContactPage   from './pages/ContactPage'
-import { SERVICE_SLUGS } from './i18n'
+import { SERVICE_SLUGS, SERVICE_CARDS, T } from './i18n'
 import './App.css'
 import './responsive.css'
 
@@ -37,6 +37,26 @@ export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [slug])
+
+  // Dynamic page title
+  useEffect(() => {
+    const base = 'WK International Services'
+    const t = T[lang]
+    let suffix = ''
+    if (!slug) {
+      suffix = ''
+    } else if (slug === 'equipe' || slug === 'nosso-time') {
+      suffix = ` | ${t.equipe || 'Nossa Equipe'}`
+    } else if (slug === 'blog') {
+      suffix = ' | Blog'
+    } else if (slug === 'contato-pagina') {
+      suffix = ` | ${t.contact || 'Contato'}`
+    } else {
+      const card = (SERVICE_CARDS[lang] || SERVICE_CARDS.pt).find(c => c.slug === slug)
+      if (card) suffix = ` | ${card.title}`
+    }
+    document.title = base + suffix
+  }, [slug, lang])
 
   // Global scroll-reveal
   useEffect(() => {

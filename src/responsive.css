@@ -275,14 +275,18 @@
 }
 
 @media (max-width: 900px) {
-  /* Contato top → stack */
-  .contact-top {
+  /* Contato top → stack, globo acima do texto */
+  .contact-top--side {
+    flex-direction: column;
     gap: 24px;
+  }
+  .contact-top--side .contact-globe {
+    order: -1;
   }
   .contact-globe,
   .contact-globe .earth-globe-wrap {
-    width: 280px;
-    height: 280px;
+    width: 220px;
+    height: 220px;
   }
   .contact-form-inner { padding: 36px 32px; }
 
@@ -301,8 +305,8 @@
 @media (max-width: 600px) {
   .contact-globe,
   .contact-globe .earth-globe-wrap {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
   }
 
   /* Contact */
