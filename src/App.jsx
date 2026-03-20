@@ -94,7 +94,6 @@ export default function App() {
     <>
       <Hero        lang={lang} setLang={setLang} />
       <OQueFazemos lang={lang} />
-      <QuemSomos   lang={lang} />
       <Servicos    lang={lang} />
       <Contato     lang={lang} />
       <Escritorios lang={lang} />

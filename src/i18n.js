@@ -3,7 +3,11 @@ import naturalizacaoImg from './assets/card-naturalizacao.png'
 import traducaoImg from './assets/card-traducao-juramentada.jpg'
 import investidorImg from './assets/card-investidor-imobiliario.jpg'
 import estudanteImg from './assets/card-visto-de-estudante.png'
-import nomadeImg from './assets/card-nomad-digital.jpg'
+import nomadeImg        from './assets/card-nomad-digital.png'
+import aposentadoImg    from './assets/card-aposentado.jpg'
+import turistaImg       from './assets/card-turista.jpg'
+import residenciaImg    from './assets/card-residencia.jpg'
+import tratadosImg      from './assets/card-tratados.jpg'
 
 export const LANGS = [
   { code: 'pt', flag: '🇧🇷', label: 'PT' },
@@ -19,6 +23,10 @@ export const SERVICE_SLUGS = [
   'visto-investidor',
   'visto-estudante',
   'nomade-digital',
+  'visto-aposentadoria',
+  'visto-turista',
+  'reuniao-familiar',
+  'acordos-tratados',
 ]
 
 export const T = {
@@ -71,7 +79,7 @@ export const T = {
     s2Title:    'What We Do',
     s2Sub:      'WK International Services helps foreigners build and organize their life in Brazil. We handle documentation, immigration processes and all the bureaucratic steps needed to live, work, study or stay in the country safely. Our work is to simplify what seems complicated, offering clear guidance and support at every step.',
     s3Title:    'Who We Are',
-    s3Sub:      'WK International Services helps foreigners who wish to live, visit or resolve matters in Brazil, offering support with documentation, bureaucracy and communication in Portuguese. Our work is to ease adaptation and legal processes so that immigrants can organize their life in the country with more security, clarity and peace of mind.',
+    s3Sub:      'WK International Services helps foreigners organize and regularize their life in Brazil, offering support with documentation, immigration processes and the bureaucracy needed to live, work or study in the country safely. Our work is to simplify each step, facilitating communication, adaptation and legal processes, bringing more clarity, peace of mind and security to those building a new life in Brazil.',
     stat1Val:   '13',
     stat1Label: 'years of experience',
     stat2Val:   '+500',
@@ -131,7 +139,7 @@ export const T = {
     s2Title:    'O que fazemos',
     s2Sub:      'A WK International Services ajuda estrangeiros a construir e organizar sua vida no Brasil. Cuidamos da documentação, processos migratórios e das etapas burocráticas necessárias para viver, trabalhar, estudar ou permanecer no país com segurança. Nosso trabalho é simplificar o que parece complicado, oferecendo orientação clara e suporte em cada passo.',
     s3Title:    'Quem Somos',
-    s3Sub:      'A WK International Services auxilia estrangeiros que desejam viver, visitar ou resolver questões no Brasil, oferecendo suporte com documentação, burocracia e comunicação em português. Nosso trabalho é facilitar a adaptação e os processos legais para que imigrantes consigam organizar sua vida no país com mais segurança, clareza e tranquilidade.',
+    s3Sub:      'A WK International Services ajuda estrangeiros a organizar e regularizar sua vida no Brasil, oferecendo suporte com documentação, processos migratórios e burocracias necessárias para viver, trabalhar ou estudar no país com segurança.\nNosso trabalho é simplificar cada etapa, facilitando a comunicação, a adaptação e os processos legais, trazendo mais clareza, tranquilidade e segurança para quem está construindo uma nova vida no Brasil.',
     stat1Val:   '13',
     stat1Label: 'anos de experiência',
     stat2Val:   '+500',
@@ -191,7 +199,7 @@ export const T = {
     s2Title:    'Lo que hacemos',
     s2Sub:      'WK International Services ayuda a extranjeros a construir y organizar su vida en Brasil. Nos encargamos de la documentación, los procesos migratorios y los pasos burocráticos necesarios para vivir, trabajar, estudiar o permanecer en el país con seguridad. Nuestro trabajo es simplificar lo que parece complicado, ofreciendo orientación clara y apoyo en cada paso.',
     s3Title:    'Quiénes Somos',
-    s3Sub:      'WK International Services ayuda a extranjeros que desean vivir, visitar o resolver trámites en Brasil, ofreciendo apoyo con documentación, burocracia y comunicación en portugués. Nuestro trabajo es facilitar la adaptación y los procesos legales para que los inmigrantes puedan organizar su vida en el país con más seguridad, claridad y tranquilidad.',
+    s3Sub:      'WK International Services ayuda a extranjeros a organizar y regularizar su vida en Brasil, ofreciendo apoyo con documentación, procesos migratorios y los trámites necesarios para vivir, trabajar o estudiar en el país con seguridad.\nNuestro trabajo es simplificar cada etapa, facilitando la comunicación, la adaptación y los procesos legales, aportando más claridad, tranquilidad y seguridad a quienes están construyendo una nueva vida en Brasil.',
     stat1Val:   '13',
     stat1Label: 'años de experiencia',
     stat2Val:   '+500',
@@ -251,7 +259,7 @@ export const T = {
     s2Title:    'Что мы делаем',
     s2Sub:      'WK International Services помогает иностранцам выстроить и организовать жизнь в Бразилии. Мы берём на себя документацию, миграционные процессы и все бюрократические шаги, необходимые для безопасного проживания, работы, учёбы или пребывания в стране. Наша задача — упростить то, что кажется сложным, предлагая чёткое руководство и поддержку на каждом этапе.',
     s3Title:    'О нас',
-    s3Sub:      'WK International Services помогает иностранцам, которые хотят жить, путешествовать или решать вопросы в Бразилии, предоставляя поддержку с документами, бюрократическими процедурами и общением на португальском языке. Наша работа — облегчить адаптацию и юридические процессы, чтобы иммигранты могли обустроить свою жизнь в стране с большей уверенностью, ясностью и спокойствием.',
+    s3Sub:      'WK International Services помогает иностранцам организовать и упорядочить свою жизнь в Бразилии, предлагая поддержку с документами, миграционными процессами и бюрократическими процедурами для безопасного проживания, работы или учёбы в стране.\nНаша задача — упростить каждый этап, облегчая коммуникацию, адаптацию и юридические процессы, принося больше ясности, спокойствия и уверенности тем, кто строит новую жизнь в Бразилии.',
     stat1Val:   '13',
     stat1Label: 'лет опыта',
     stat2Val:   '+500',
@@ -265,10 +273,6 @@ export const T = {
 }
 
 /* ── Service cards data (carousel) ────────────────────────────── */
-/* ── Service cards
-     Each card: { category, title, mini, desc, accent, bg, img? }
-     img is optional — add the import path to show a photo behind the gradient
-     Example: img: naturalizacaoImg  (import at top of i18n.js)          ── */
 export const SERVICE_CARDS = {
   pt: [
     {
@@ -320,6 +324,46 @@ export const SERVICE_CARDS = {
       accent: '#9b2335',
       bg: 'linear-gradient(160deg, #1a0008 0%, #3d0016 55%, #6b0028 100%)',
       img: nomadeImg,
+    },
+    {
+      slug:     'visto-aposentadoria',
+      category: 'VISTO',
+      title:    'Visto de Aposentadoria',
+      mini:     'Aproveite o Brasil na melhor fase da vida.',
+      desc:     'Obtenha seu visto de aposentado e viva no Brasil com tranquilidade e segurança jurídica.',
+      accent: '#2c7a7b',
+      bg: 'linear-gradient(160deg, #0f2027 0%, #203a43 55%, #2c5364 100%)',
+      img: aposentadoImg,
+    },
+    {
+      slug:     'visto-turista',
+      category: 'VISTO',
+      title:    'Visto de Turista',
+      mini:     'Explore o Brasil sem preocupações.',
+      desc:     'Regularize seu visto de turista e aproveite tudo que o Brasil tem a oferecer.',
+      accent: '#276749',
+      bg: 'linear-gradient(160deg, #001a0d 0%, #003d1f 55%, #00592d 100%)',
+      img: turistaImg,
+    },
+    {
+      slug:     'reuniao-familiar',
+      category: 'RESIDÊNCIA',
+      title:    'Autorização de Residência por Reunião Familiar',
+      mini:     'Fique perto de quem você ama.',
+      desc:     'Obtenha autorização de residência no Brasil para reunir sua família com segurança.',
+      accent: '#b7791f',
+      bg: 'linear-gradient(160deg, #1a0e00 0%, #3d2200 55%, #6b3a00 100%)',
+      img: residenciaImg,
+    },
+    {
+      slug:     'acordos-tratados',
+      category: 'RESIDÊNCIA',
+      title:    'Autorização de Residência por Acordos e Tratados',
+      mini:     'Residência facilitada por tratados internacionais.',
+      desc:     'Aproveite acordos bilaterais e tratados internacionais para obter sua residência no Brasil.',
+      accent: '#5a4fcf',
+      bg: 'linear-gradient(160deg, #0d0d1a 0%, #1a1a3e 55%, #2a2a6e 100%)',
+      img: tratadosImg,
     },
   ],
   en: [
@@ -373,6 +417,42 @@ export const SERVICE_CARDS = {
       bg: 'linear-gradient(160deg, #1a0008 0%, #3d0016 55%, #6b0028 100%)',
       img: nomadeImg,
     },
+    {
+      slug:     'visto-aposentadoria',
+      category: 'VISA',
+      title:    'Retirement Visa',
+      mini:     'Enjoy Brazil at the best phase of life.',
+      desc:     'Obtain your retirement visa and live in Brazil with peace of mind and full legal security.',
+      accent: '#2c7a7b',
+      bg: 'linear-gradient(160deg, #0f2027 0%, #203a43 55%, #2c5364 100%)',
+    },
+    {
+      slug:     'visto-turista',
+      category: 'VISA',
+      title:    'Tourist Visa',
+      mini:     'Explore Brazil without worries.',
+      desc:     'Regularize your tourist visa and enjoy everything Brazil has to offer.',
+      accent: '#276749',
+      bg: 'linear-gradient(160deg, #001a0d 0%, #003d1f 55%, #00592d 100%)',
+    },
+    {
+      slug:     'reuniao-familiar',
+      category: 'RESIDENCE',
+      title:    'Family Reunification Residence Authorization',
+      mini:     'Stay close to the ones you love.',
+      desc:     'Obtain residence authorization in Brazil to safely reunite with your family.',
+      accent: '#b7791f',
+      bg: 'linear-gradient(160deg, #1a0e00 0%, #3d2200 55%, #6b3a00 100%)',
+    },
+    {
+      slug:     'acordos-tratados',
+      category: 'RESIDENCE',
+      title:    'Residence Authorization by Agreements & Treaties',
+      mini:     'Residency made easier through international treaties.',
+      desc:     'Take advantage of bilateral agreements and international treaties to obtain residence in Brazil.',
+      accent: '#5a4fcf',
+      bg: 'linear-gradient(160deg, #0d0d1a 0%, #1a1a3e 55%, #2a2a6e 100%)',
+    },
   ],
   es: [
     {
@@ -424,6 +504,42 @@ export const SERVICE_CARDS = {
       accent: '#9b2335',
       bg: 'linear-gradient(160deg, #1a0008 0%, #3d0016 55%, #6b0028 100%)',
       img: nomadeImg,
+    },
+    {
+      slug:     'visto-aposentadoria',
+      category: 'VISA',
+      title:    'Visa de Jubilación',
+      mini:     'Disfruta Brasil en la mejor etapa de tu vida.',
+      desc:     'Obtén tu visa de jubilado y vive en Brasil con tranquilidad y seguridad jurídica.',
+      accent: '#2c7a7b',
+      bg: 'linear-gradient(160deg, #0f2027 0%, #203a43 55%, #2c5364 100%)',
+    },
+    {
+      slug:     'visto-turista',
+      category: 'VISA',
+      title:    'Visa de Turista',
+      mini:     'Explora Brasil sin preocupaciones.',
+      desc:     'Regulariza tu visa de turista y disfruta todo lo que Brasil tiene para ofrecer.',
+      accent: '#276749',
+      bg: 'linear-gradient(160deg, #001a0d 0%, #003d1f 55%, #00592d 100%)',
+    },
+    {
+      slug:     'reuniao-familiar',
+      category: 'RESIDENCIA',
+      title:    'Autorización de Residencia por Reunificación Familiar',
+      mini:     'Permanece cerca de quienes amas.',
+      desc:     'Obtén autorización de residencia en Brasil para reunirte con tu familia de forma segura.',
+      accent: '#b7791f',
+      bg: 'linear-gradient(160deg, #1a0e00 0%, #3d2200 55%, #6b3a00 100%)',
+    },
+    {
+      slug:     'acordos-tratados',
+      category: 'RESIDENCIA',
+      title:    'Autorización de Residencia por Acuerdos y Tratados',
+      mini:     'Residencia facilitada por tratados internacionales.',
+      desc:     'Aprovecha acuerdos bilaterales y tratados internacionales para obtener tu residencia en Brasil.',
+      accent: '#5a4fcf',
+      bg: 'linear-gradient(160deg, #0d0d1a 0%, #1a1a3e 55%, #2a2a6e 100%)',
     },
   ],
   ru: [
@@ -477,6 +593,42 @@ export const SERVICE_CARDS = {
       bg: 'linear-gradient(160deg, #1a0008 0%, #3d0016 55%, #6b0028 100%)',
       img: nomadeImg,
     },
+    {
+      slug:     'visto-aposentadoria',
+      category: 'ВИЗА',
+      title:    'Пенсионная виза',
+      mini:     'Наслаждайтесь Бразилией на лучшем этапе жизни.',
+      desc:     'Получите пенсионную визу и живите в Бразилии спокойно и с полной правовой защитой.',
+      accent: '#2c7a7b',
+      bg: 'linear-gradient(160deg, #0f2027 0%, #203a43 55%, #2c5364 100%)',
+    },
+    {
+      slug:     'visto-turista',
+      category: 'ВИЗА',
+      title:    'Туристическая виза',
+      mini:     'Открывайте Бразилию без забот.',
+      desc:     'Оформите туристическую визу и наслаждайтесь всем лучшим, что предлагает Бразилия.',
+      accent: '#276749',
+      bg: 'linear-gradient(160deg, #001a0d 0%, #003d1f 55%, #00592d 100%)',
+    },
+    {
+      slug:     'reuniao-familiar',
+      category: 'ВНЖ',
+      title:    'Вид на жительство по воссоединению семьи',
+      mini:     'Будьте рядом с теми, кого любите.',
+      desc:     'Получите ВНЖ в Бразилии для безопасного воссоединения с семьёй.',
+      accent: '#b7791f',
+      bg: 'linear-gradient(160deg, #1a0e00 0%, #3d2200 55%, #6b3a00 100%)',
+    },
+    {
+      slug:     'acordos-tratados',
+      category: 'ВНЖ',
+      title:    'ВНЖ по соглашениям и договорам',
+      mini:     'ВНЖ через международные договоры.',
+      desc:     'Воспользуйтесь двусторонними соглашениями и международными договорами для получения ВНЖ в Бразилии.',
+      accent: '#5a4fcf',
+      bg: 'linear-gradient(160deg, #0d0d1a 0%, #1a1a3e 55%, #2a2a6e 100%)',
+    },
   ],
 }
 
@@ -487,6 +639,10 @@ export const SERVICES = {
     'Visto de Investidor Imobiliário',
     'Visto de Estudante',
     'Visto Nômade Digital',
+    'Visto de Aposentadoria',
+    'Visto de Turista',
+    'Autorização de Residência por Reunião Familiar',
+    'Autorização de Residência por Acordos e Tratados',
   ],
   en: [
     'Brazilian Naturalization',
@@ -494,6 +650,10 @@ export const SERVICES = {
     'Real Estate Investor Visa',
     'Student Visa',
     'Digital Nomad Visa',
+    'Retirement Visa',
+    'Tourist Visa',
+    'Family Reunification Residence Authorization',
+    'Residence Authorization by Agreements & Treaties',
   ],
   es: [
     'Naturalización Brasileña',
@@ -501,6 +661,10 @@ export const SERVICES = {
     'Visa de Inversor Inmobiliario',
     'Visa de Estudiante',
     'Visa Nómada Digital',
+    'Visa de Jubilación',
+    'Visa de Turista',
+    'Autorización de Residencia por Reunificación Familiar',
+    'Autorización de Residencia por Acuerdos y Tratados',
   ],
   ru: [
     'Получение гражданства Бразилии',
@@ -508,6 +672,10 @@ export const SERVICES = {
     'Виза инвестора в недвижимость',
     'Студенческая виза',
     'Виза цифрового кочевника',
+    'Пенсионная виза',
+    'Туристическая виза',
+    'Вид на жительство по воссоединению семьи',
+    'ВНЖ по соглашениям и договорам',
   ],
 }
 
@@ -657,6 +825,94 @@ export const SERVICE_PAGE_DATA = {
       contactTitle: 'Trabalhe do Brasil com liberdade',
       contactSubtitle: 'Regularize sua situação e aproveite o Brasil trabalhando de onde quiser.',
     },
+    'visto-aposentadoria': {
+      subtitle: 'Viva o melhor do Brasil com tranquilidade, segurança e suporte jurídico completo.',
+      stats: [
+        { value: '13', label: 'anos de experiência' },
+        { value: '+300', label: 'clientes atendidos' },
+        { value: '98%', label: 'taxa de aprovação' },
+      ],
+      benefits: [
+        'Residência legal e permanente no Brasil',
+        'Acesso ao sistema de saúde público e privado',
+        'Isenção de imposto sobre renda de aposentadoria',
+        'Extensível a cônjuge e dependentes',
+      ],
+      requirements: [
+        'Comprovante de renda de aposentadoria mínima',
+        'Passaporte válido com pelo menos 6 meses de vigência',
+        'Certidão de antecedentes criminais apostilada',
+        'Documentação pessoal completa',
+      ],
+      contactTitle: 'Comece sua vida no Brasil como aposentado',
+      contactSubtitle: 'Nossa equipe cuida de cada detalhe para que você aproveite sua aposentadoria no Brasil.',
+    },
+    'visto-turista': {
+      subtitle: 'Explore o Brasil com toda a documentação em dia e sem dor de cabeça.',
+      stats: [
+        { value: '72h', label: 'prazo médio de emissão' },
+        { value: '+130', label: 'países atendidos' },
+        { value: '100%', label: 'processo regularizado' },
+      ],
+      benefits: [
+        'Entrada regular e sem complicações no Brasil',
+        'Permanência de até 90 dias prorrogável',
+        'Acesso a todos os estados brasileiros',
+        'Suporte durante toda a estadia',
+      ],
+      requirements: [
+        'Passaporte válido por pelo menos 6 meses',
+        'Comprovante de hospedagem no Brasil',
+        'Comprovante de meios financeiros suficientes',
+        'Passagem de volta confirmada',
+      ],
+      contactTitle: 'Venha ao Brasil sem preocupações',
+      contactSubtitle: 'Cuidamos de toda a documentação para que sua viagem ao Brasil seja perfeita.',
+    },
+    'reuniao-familiar': {
+      subtitle: 'Reúna sua família no Brasil com segurança jurídica e suporte completo em todo o processo.',
+      stats: [
+        { value: '13', label: 'anos de experiência' },
+        { value: '+150', label: 'famílias reunidas' },
+        { value: '98%', label: 'taxa de aprovação' },
+      ],
+      benefits: [
+        'Autorização de residência para familiares',
+        'Acesso ao mercado de trabalho',
+        'Direito a matrícula em escolas públicas',
+        'Possibilidade de naturalização futura',
+      ],
+      requirements: [
+        'Parentesco comprovado com residente legal no Brasil',
+        'Documentos de estado civil apostilados',
+        'Passaporte válido de todos os familiares',
+        'Comprovante de vínculo familiar reconhecido',
+      ],
+      contactTitle: 'Reúna sua família no Brasil',
+      contactSubtitle: 'Trabalhamos para que você e sua família estejam juntos no Brasil com toda a segurança jurídica.',
+    },
+    'acordos-tratados': {
+      subtitle: 'Residência facilitada por acordos bilaterais e tratados internacionais reconhecidos pelo Brasil.',
+      stats: [
+        { value: '+20', label: 'países com acordos vigentes' },
+        { value: '13', label: 'anos de experiência' },
+        { value: '100%', label: 'processo legal e seguro' },
+      ],
+      benefits: [
+        'Processo simplificado para países conveniados',
+        'Menor burocracia e prazos reduzidos',
+        'Acesso ao mercado de trabalho e serviços públicos',
+        'Caminho para residência permanente',
+      ],
+      requirements: [
+        'Ser nacional de país com acordo ativo com o Brasil',
+        'Passaporte válido com pelo menos 6 meses',
+        'Documentação pessoal apostilada',
+        'Comprovante de vínculo com o Brasil (emprego, família ou estudo)',
+      ],
+      contactTitle: 'Verifique se seu país tem acordo com o Brasil',
+      contactSubtitle: 'Nossa equipe analisa seu caso e identifica o caminho mais rápido para sua residência.',
+    },
   },
   en: {
     naturalizacao: {
@@ -767,6 +1023,94 @@ export const SERVICE_PAGE_DATA = {
       ],
       contactTitle: 'Work from Brazil with freedom',
       contactSubtitle: 'Regularize your status and enjoy the best of Brazil while working from anywhere.',
+    },
+    'visto-aposentadoria': {
+      subtitle: 'Experience the best of Brazil with peace of mind, security, and full legal support.',
+      stats: [
+        { value: '13', label: 'years of experience' },
+        { value: '+300', label: 'clients served' },
+        { value: '98%', label: 'approval rate' },
+      ],
+      benefits: [
+        'Legal and permanent residence in Brazil',
+        'Access to public and private healthcare',
+        'Tax exemption on retirement income',
+        'Extendable to spouse and dependants',
+      ],
+      requirements: [
+        'Proof of minimum retirement income',
+        'Passport valid for at least 6 months',
+        'Apostilled criminal background check',
+        'Complete personal documentation',
+      ],
+      contactTitle: 'Start your retirement life in Brazil',
+      contactSubtitle: 'Our team handles every detail so you can enjoy your retirement in Brazil to the fullest.',
+    },
+    'visto-turista': {
+      subtitle: 'Explore Brazil with all your documentation in order and zero hassle.',
+      stats: [
+        { value: '72h', label: 'average issuance time' },
+        { value: '+130', label: 'countries served' },
+        { value: '100%', label: 'regularized process' },
+      ],
+      benefits: [
+        'Regular and trouble-free entry to Brazil',
+        'Stay of up to 90 days, extendable',
+        'Access to all Brazilian states',
+        'Support throughout your entire stay',
+      ],
+      requirements: [
+        'Passport valid for at least 6 months',
+        'Proof of accommodation in Brazil',
+        'Proof of sufficient financial means',
+        'Confirmed return ticket',
+      ],
+      contactTitle: 'Come to Brazil without worries',
+      contactSubtitle: 'We take care of all documentation so your trip to Brazil is perfect from start to finish.',
+    },
+    'reuniao-familiar': {
+      subtitle: 'Reunite your family in Brazil with full legal security and support throughout the entire process.',
+      stats: [
+        { value: '13', label: 'years of experience' },
+        { value: '+150', label: 'families reunited' },
+        { value: '98%', label: 'approval rate' },
+      ],
+      benefits: [
+        'Residence authorization for family members',
+        'Access to the job market',
+        'Right to enroll in public schools',
+        'Path to future naturalization',
+      ],
+      requirements: [
+        'Proven kinship with a legal resident in Brazil',
+        'Apostilled civil status documents',
+        'Valid passports for all family members',
+        'Proof of recognized family relationship',
+      ],
+      contactTitle: 'Reunite your family in Brazil',
+      contactSubtitle: 'We work to bring you and your family together in Brazil with full legal security.',
+    },
+    'acordos-tratados': {
+      subtitle: 'Facilitated residence through bilateral agreements and international treaties recognized by Brazil.',
+      stats: [
+        { value: '+20', label: 'countries with active agreements' },
+        { value: '13', label: 'years of experience' },
+        { value: '100%', label: 'legal and secure process' },
+      ],
+      benefits: [
+        'Simplified process for treaty countries',
+        'Less bureaucracy and reduced timelines',
+        'Access to the job market and public services',
+        'Path to permanent residence',
+      ],
+      requirements: [
+        'National of a country with an active agreement with Brazil',
+        'Passport valid for at least 6 months',
+        'Apostilled personal documentation',
+        'Proof of ties to Brazil (employment, family, or study)',
+      ],
+      contactTitle: 'Check if your country has an agreement with Brazil',
+      contactSubtitle: 'Our team analyses your case and identifies the fastest path to your residence.',
     },
   },
   es: {
@@ -879,6 +1223,94 @@ export const SERVICE_PAGE_DATA = {
       contactTitle: 'Trabaja desde Brasil con libertad',
       contactSubtitle: 'Regulariza tu situación y disfruta lo mejor de Brasil trabajando desde donde quieras.',
     },
+    'visto-aposentadoria': {
+      subtitle: 'Vive lo mejor de Brasil con tranquilidad, seguridad y soporte jurídico completo.',
+      stats: [
+        { value: '13', label: 'años de experiencia' },
+        { value: '+300', label: 'clientes atendidos' },
+        { value: '98%', label: 'tasa de aprobación' },
+      ],
+      benefits: [
+        'Residencia legal y permanente en Brasil',
+        'Acceso al sistema de salud público y privado',
+        'Exención de impuesto sobre ingresos de jubilación',
+        'Extensible a cónyuge y dependientes',
+      ],
+      requirements: [
+        'Comprobante de ingreso mínimo de jubilación',
+        'Pasaporte válido por al menos 6 meses',
+        'Certificado de antecedentes penales apostillado',
+        'Documentación personal completa',
+      ],
+      contactTitle: 'Comienza tu vida en Brasil como jubilado',
+      contactSubtitle: 'Nuestro equipo cuida cada detalle para que disfrutes tu jubilación en Brasil.',
+    },
+    'visto-turista': {
+      subtitle: 'Explora Brasil con toda la documentación en regla y sin complicaciones.',
+      stats: [
+        { value: '72h', label: 'plazo promedio de emisión' },
+        { value: '+130', label: 'países atendidos' },
+        { value: '100%', label: 'proceso regularizado' },
+      ],
+      benefits: [
+        'Entrada regular y sin inconvenientes a Brasil',
+        'Estadía de hasta 90 días, prorrogable',
+        'Acceso a todos los estados brasileños',
+        'Soporte durante toda la estadía',
+      ],
+      requirements: [
+        'Pasaporte válido por al menos 6 meses',
+        'Comprobante de alojamiento en Brasil',
+        'Comprobante de medios financieros suficientes',
+        'Boleto de regreso confirmado',
+      ],
+      contactTitle: 'Ven a Brasil sin preocupaciones',
+      contactSubtitle: 'Nos encargamos de toda la documentación para que tu viaje a Brasil sea perfecto.',
+    },
+    'reuniao-familiar': {
+      subtitle: 'Reúne a tu familia en Brasil con seguridad jurídica y soporte completo en todo el proceso.',
+      stats: [
+        { value: '13', label: 'años de experiencia' },
+        { value: '+150', label: 'familias reunidas' },
+        { value: '98%', label: 'tasa de aprobación' },
+      ],
+      benefits: [
+        'Autorización de residencia para familiares',
+        'Acceso al mercado laboral',
+        'Derecho a matrícula en escuelas públicas',
+        'Posibilidad de naturalización futura',
+      ],
+      requirements: [
+        'Parentesco comprobado con residente legal en Brasil',
+        'Documentos de estado civil apostillados',
+        'Pasaportes válidos de todos los familiares',
+        'Comprobante de vínculo familiar reconocido',
+      ],
+      contactTitle: 'Reúne a tu familia en Brasil',
+      contactSubtitle: 'Trabajamos para que tú y tu familia estén juntos en Brasil con toda la seguridad jurídica.',
+    },
+    'acordos-tratados': {
+      subtitle: 'Residencia facilitada por acuerdos bilaterales y tratados internacionales reconocidos por Brasil.',
+      stats: [
+        { value: '+20', label: 'países con acuerdos vigentes' },
+        { value: '13', label: 'años de experiencia' },
+        { value: '100%', label: 'proceso legal y seguro' },
+      ],
+      benefits: [
+        'Proceso simplificado para países convenidos',
+        'Menor burocracia y plazos reducidos',
+        'Acceso al mercado laboral y servicios públicos',
+        'Camino hacia la residencia permanente',
+      ],
+      requirements: [
+        'Ser nacional de un país con acuerdo activo con Brasil',
+        'Pasaporte válido por al menos 6 meses',
+        'Documentación personal apostillada',
+        'Comprobante de vínculo con Brasil (empleo, familia o estudio)',
+      ],
+      contactTitle: 'Verifica si tu país tiene acuerdo con Brasil',
+      contactSubtitle: 'Nuestro equipo analiza tu caso e identifica el camino más rápido hacia tu residencia.',
+    },
   },
   ru: {
     naturalizacao: {
@@ -989,6 +1421,94 @@ export const SERVICE_PAGE_DATA = {
       ],
       contactTitle: 'Работайте из Бразилии свободно',
       contactSubtitle: 'Узаконьте свой статус и наслаждайтесь всем лучшим в Бразилии, работая откуда угодно.',
+    },
+    'visto-aposentadoria': {
+      subtitle: 'Наслаждайтесь лучшим в Бразилии: спокойствие, безопасность и полная правовая поддержка.',
+      stats: [
+        { value: '13', label: 'лет опыта' },
+        { value: '+300', label: 'клиентов обслужено' },
+        { value: '98%', label: 'процент одобрений' },
+      ],
+      benefits: [
+        'Законное и постоянное проживание в Бразилии',
+        'Доступ к государственной и частной медицине',
+        'Освобождение от налога на пенсионный доход',
+        'Распространяется на супруга и иждивенцев',
+      ],
+      requirements: [
+        'Подтверждение минимального пенсионного дохода',
+        'Паспорт, действующий не менее 6 месяцев',
+        'Апостилированная справка о несудимости',
+        'Полный пакет личных документов',
+      ],
+      contactTitle: 'Начните пенсионную жизнь в Бразилии',
+      contactSubtitle: 'Наша команда позаботится о каждой детали, чтобы вы наслаждались пенсией в Бразилии.',
+    },
+    'visto-turista': {
+      subtitle: 'Откройте Бразилию с полным порядком в документах и без лишних хлопот.',
+      stats: [
+        { value: '72ч', label: 'средний срок оформления' },
+        { value: '+130', label: 'обслуживаемых стран' },
+        { value: '100%', label: 'законное оформление' },
+      ],
+      benefits: [
+        'Законный въезд в Бразилию без осложнений',
+        'Пребывание до 90 дней с возможностью продления',
+        'Доступ ко всем штатам Бразилии',
+        'Поддержка на протяжении всего пребывания',
+      ],
+      requirements: [
+        'Паспорт, действующий не менее 6 месяцев',
+        'Подтверждение проживания в Бразилии',
+        'Подтверждение достаточных финансовых средств',
+        'Подтверждённый обратный билет',
+      ],
+      contactTitle: 'Приезжайте в Бразилию без забот',
+      contactSubtitle: 'Мы берём на себя все документы, чтобы ваша поездка в Бразилию была идеальной.',
+    },
+    'reuniao-familiar': {
+      subtitle: 'Воссоединитесь с семьёй в Бразилии с полной правовой защитой и поддержкой на каждом этапе.',
+      stats: [
+        { value: '13', label: 'лет опыта' },
+        { value: '+150', label: 'воссоединённых семей' },
+        { value: '98%', label: 'процент одобрений' },
+      ],
+      benefits: [
+        'ВНЖ для членов семьи',
+        'Доступ к рынку труда',
+        'Право на обучение в государственных школах',
+        'Путь к будущей натурализации',
+      ],
+      requirements: [
+        'Подтверждённое родство с законным резидентом Бразилии',
+        'Апостилированные документы о гражданском состоянии',
+        'Действующие паспорта всех членов семьи',
+        'Подтверждение признанного семейного родства',
+      ],
+      contactTitle: 'Воссоединитесь с семьёй в Бразилии',
+      contactSubtitle: 'Мы работаем для того, чтобы вы и ваша семья были вместе в Бразилии с полной правовой защитой.',
+    },
+    'acordos-tratados': {
+      subtitle: 'ВНЖ через двусторонние соглашения и международные договоры, признанные Бразилией.',
+      stats: [
+        { value: '+20', label: 'стран с действующими соглашениями' },
+        { value: '13', label: 'лет опыта' },
+        { value: '100%', label: 'законный и безопасный процесс' },
+      ],
+      benefits: [
+        'Упрощённый процесс для стран-партнёров',
+        'Меньше бюрократии и сокращённые сроки',
+        'Доступ к рынку труда и государственным услугам',
+        'Путь к постоянному ВНЖ',
+      ],
+      requirements: [
+        'Гражданство страны с действующим соглашением с Бразилией',
+        'Паспорт, действующий не менее 6 месяцев',
+        'Апостилированные личные документы',
+        'Подтверждение связи с Бразилией (работа, семья или учёба)',
+      ],
+      contactTitle: 'Проверьте, есть ли у вашей страны соглашение с Бразилией',
+      contactSubtitle: 'Наша команда анализирует ваш случай и определяет быстрейший путь к получению ВНЖ.',
     },
   },
 }

@@ -1,11 +1,15 @@
 import Navbar  from '../components/Navbar'
 import Footer  from '../components/Footer'
 import { SERVICE_CARDS, SERVICE_PAGE_DATA, T } from '../i18n'
-import estudanteBg      from '../assets/estudante-bgtitle.png'
-import imobiliarioBg    from '../assets/imobiliario-bgtitle.png'
-import naturalizacaoBg  from '../assets/naturalizacao-bgtitle.png'
-import nomadeBg         from '../assets/nomadigital-bgtitle.png'
-import tradJurBg        from '../assets/tradjur-bgtitle.png'
+import estudanteBg       from '../assets/estudante-bgtitle.png'
+import imobiliarioBg     from '../assets/imobiliario-bgtitle.png'
+import naturalizacaoBg   from '../assets/naturalizacao-bgtitle.png'
+import nomadeBg          from '../assets/nomadigital-bgtitle.png'
+import tradJurBg         from '../assets/tradjur-bgtitle.png'
+import aposentadoriaBg   from '../assets/aposetados-bgtitle.png'
+import turistaBg         from '../assets/vistoturista-bgtitle.png'
+import reuniaoBg         from '../assets/residence-bgtitle.png'
+import acordosBg         from '../assets/residencia-acordos-tratados-bgtitle.png'
 
 const SLUG_BG = {
   'visto-estudante':       estudanteBg,
@@ -13,6 +17,10 @@ const SLUG_BG = {
   'naturalizacao':         naturalizacaoBg,
   'nomade-digital':        nomadeBg,
   'traducao-juramentada':  tradJurBg,
+  'visto-aposentadoria':   aposentadoriaBg,
+  'visto-turista':         turistaBg,
+  'reuniao-familiar':      reuniaoBg,
+  'acordos-tratados':      acordosBg,
 }
 
 const BENEFIT_ICONS = [

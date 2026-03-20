@@ -82,11 +82,13 @@ export default function OQueFazemos({ lang }) {
           <StatCard rawVal={t.stat3Val} label={t.stat3Label} triggered={triggered} delay={2} />
         </div>
 
-        {/* Title + subtitle (left) / Photo (right) */}
+        {/* Quem Somos: text (left) / Photo (right) */}
         <div className="section2-body">
           <div className="section2-left" data-reveal data-delay="0">
-            <h2 className="section2-title">{t.s2Title}</h2>
-            <p className="section2-sub">{t.s2Sub}</p>
+            <h2 className="section2-title">{t.s3Title}</h2>
+            {t.s3Sub.split('\n').map((p, i) => (
+              <p key={i} className="section2-sub">{p}</p>
+            ))}
           </div>
           <div className="section2-right" data-reveal data-delay="1">
             <img src={br04Img} alt="" className="section2-photo" />
