@@ -51,7 +51,7 @@ export default function Contato({ lang, headline, sideGlobe }) {
         </div>
         {!headline && (
           <div className="contact-globe contact-globe--right" data-reveal data-delay="1">
-            <EarthGlobe />
+            <EarthGlobe lang={lang} />
           </div>
         )}
       </div>

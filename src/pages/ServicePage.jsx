@@ -16,7 +16,7 @@ const SLUG_BG = {
   'visto-investidor':      imobiliarioBg,
   'naturalizacao':         naturalizacaoBg,
   'nomade-digital':        nomadeBg,
-  'traducao-juramentada':  tradJurBg,
+  'cnh-cpf':               tradJurBg,
   'visto-aposentadoria':   aposentadoriaBg,
   'visto-turista':         turistaBg,
   'reuniao-familiar':      reuniaoBg,

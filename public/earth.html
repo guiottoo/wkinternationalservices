@@ -14,6 +14,24 @@ html, body { width:100%; height:100%; background:transparent; overflow:hidden; }
 }
 .globe-wrapper { position: relative; }
 #globe-3d { display: block; }
+
+#tooltip {
+  position: fixed;
+  pointer-events: none;
+  background: rgba(10, 22, 40, 0.88);
+  color: #7fb3e8;
+  font-family: sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 5px 11px;
+  border-radius: 6px;
+  border: 1px solid rgba(59, 158, 255, 0.45);
+  white-space: nowrap;
+  display: none;
+  z-index: 999;
+  transform: translate(14px, -50%);
+}
 </style>
 </head>
 <body>
@@ -22,6 +40,7 @@ html, body { width:100%; height:100%; background:transparent; overflow:hidden; }
     <canvas id="globe-3d"></canvas>
   </div>
 </div>
+<div id="tooltip"></div>
 
 <script type="module">
 import * as THREE    from "https://cdn.skypack.dev/three@0.133.1/build/three.module";
@@ -30,8 +49,77 @@ import * as topojson from "https://cdn.skypack.dev/topojson-client@3";
 
 const containerEl = document.querySelector(".globe-wrapper");
 const canvas3D    = containerEl.querySelector("#globe-3d");
+const tooltip     = document.getElementById("tooltip");
 
 let renderer, scene, camera, controls;
+const raycaster = new THREE.Raycaster();
+raycaster.params.Mesh.threshold = 0.01;
+const mouse = new THREE.Vector2(-999, -999);
+const dotMeshes = []; // { mesh, labels: {pt,en,es,ru} }
+let currentLang = 'pt';
+
+// Country names in all 4 languages — [lat, lon, pt, en, es, ru]
+const servedCountries = [
+  // North America
+  [ 39.50, -98.35, "EUA",               "USA",              "EE.UU.",           "США"],
+  [ 56.13,-106.35, "Canadá",            "Canada",           "Canadá",           "Канада"],
+  [ 19.43, -99.13, "México",            "Mexico",           "México",           "Мексика"],
+  // South America
+  [-14.24, -51.93, "Brasil",            "Brazil",           "Brasil",           "Бразилия"],
+  [-34.60, -58.38, "Argentina",         "Argentina",        "Argentina",        "Аргентина"],
+  [  4.57, -74.30, "Colômbia",          "Colombia",         "Colombia",         "Колумбия"],
+  [-33.46, -70.65, "Chile",             "Chile",            "Chile",            "Чили"],
+  [ -9.19, -75.02, "Peru",              "Peru",             "Perú",             "Перу"],
+  [-32.52, -55.77, "Uruguai",           "Uruguay",          "Uruguay",          "Уругвай"],
+  // Europe
+  [ 55.38,  -3.44, "Reino Unido",       "United Kingdom",   "Reino Unido",      "Великобритания"],
+  [ 53.41,  -8.24, "Irlanda",           "Ireland",          "Irlanda",          "Ирландия"],
+  [ 39.40,  -8.22, "Portugal",          "Portugal",         "Portugal",         "Португалия"],
+  [ 40.46,  -3.75, "Espanha",           "Spain",            "España",           "Испания"],
+  [ 46.23,   2.21, "França",            "France",           "Francia",          "Франция"],
+  [ 51.17,  10.45, "Alemanha",          "Germany",          "Alemania",         "Германия"],
+  [ 52.13,   5.29, "Holanda",           "Netherlands",      "Países Bajos",     "Нидерланды"],
+  [ 50.50,   4.47, "Bélgica",           "Belgium",          "Bélgica",          "Бельгия"],
+  [ 46.82,   8.23, "Suíça",             "Switzerland",      "Suiza",            "Швейцария"],
+  [ 41.87,  12.57, "Itália",            "Italy",            "Italia",           "Италия"],
+  [ 47.52,  14.55, "Áustria",           "Austria",          "Austria",          "Австрия"],
+  [ 49.82,  15.47, "Rep. Tcheca",       "Czech Republic",   "Rep. Checa",       "Чехия"],
+  [ 51.92,  19.15, "Polônia",           "Poland",           "Polonia",          "Польша"],
+  [ 47.16,  19.50, "Hungria",           "Hungary",          "Hungría",          "Венгрия"],
+  [ 45.94,  24.97, "Romênia",           "Romania",          "Rumania",          "Румыния"],
+  [ 39.07,  21.82, "Grécia",            "Greece",           "Grecia",           "Греция"],
+  [ 59.33,  18.07, "Suécia",            "Sweden",           "Suecia",           "Швеция"],
+  [ 59.91,  10.75, "Noruega",           "Norway",           "Noruega",          "Норвегия"],
+  [ 55.68,  12.57, "Dinamarca",         "Denmark",          "Dinamarca",        "Дания"],
+  // Middle East & Turkey
+  [ 38.96,  35.24, "Turquia",           "Turkey",           "Turquía",          "Турция"],
+  [ 31.05,  34.85, "Israel",            "Israel",           "Israel",           "Израиль"],
+  [ 23.42,  53.85, "Emirados Árabes",   "UAE",              "Emiratos Árabes",  "ОАЭ"],
+  [ 23.89,  45.08, "Arábia Saudita",    "Saudi Arabia",     "Arabia Saudita",   "Саудовская Аравия"],
+  [ 29.31,  47.48, "Kuwait",            "Kuwait",           "Kuwait",           "Кувейт"],
+  // Asia
+  [ 20.59,  78.96, "Índia",             "India",            "India",            "Индия"],
+  [ 28.61,  77.21, "Índia (Nova Déli)", "India (New Delhi)","India (Nueva Delhi)","Индия (Нью-Дели)"],
+  [ 35.86, 104.20, "China",             "China",            "China",            "Китай"],
+  [ 31.23, 121.47, "China (Xangai)",    "China (Shanghai)", "China (Shanghái)", "Китай (Шанхай)"],
+  [ 36.20, 138.25, "Japão",             "Japan",            "Japón",            "Япония"],
+  [ 35.91, 127.77, "Coreia do Sul",     "South Korea",      "Corea del Sur",    "Южная Корея"],
+  [  1.35, 103.82, "Singapura",         "Singapore",        "Singapur",         "Сингапур"],
+  [  4.21, 101.98, "Malásia",           "Malaysia",         "Malasia",          "Малайзия"],
+  [ 22.35, 114.18, "Hong Kong",         "Hong Kong",        "Hong Kong",        "Гонконг"],
+  [ 13.75, 100.52, "Tailândia",         "Thailand",         "Tailandia",        "Таиланд"],
+  [ 14.06, 108.28, "Vietnã",            "Vietnam",          "Vietnam",          "Вьетнам"],
+  [ 12.88, 121.77, "Filipinas",         "Philippines",      "Filipinas",        "Филиппины"],
+  [ -6.21, 106.85, "Indonésia",         "Indonesia",        "Indonesia",        "Индонезия"],
+  // Africa
+  [-30.56,  22.94, "África do Sul",     "South Africa",     "Sudáfrica",        "ЮАР"],
+  [  9.08,   8.68, "Nigéria",           "Nigeria",          "Nigeria",          "Нигерия"],
+  [  7.95,  -1.02, "Gana",              "Ghana",            "Ghana",            "Гана"],
+  [ 26.82,  30.80, "Egito",             "Egypt",            "Egipto",           "Египет"],
+  // Oceania
+  [-25.27, 133.78, "Austrália",         "Australia",        "Australia",        "Австралия"],
+  [-36.86, 174.76, "Nova Zelândia",     "New Zealand",      "Nueva Zelanda",    "Новая Зеландия"],
+];
 
 // Convert lat/lon → 3D point on unit sphere
 function latLonToVec3(lat, lon, r = 1.002) {
@@ -43,6 +131,22 @@ function latLonToVec3(lat, lon, r = 1.002) {
      r * Math.sin(phi) * Math.sin(theta)
   );
 }
+
+function getLabel(entry) {
+  const [,, pt, en, es, ru] = entry;
+  return { pt, en, es, ru }[currentLang] ?? pt;
+}
+
+// Listen for lang updates from parent React app
+window.addEventListener('message', e => {
+  if (e.data?.type === 'SET_LANG' && e.data.lang) {
+    currentLang = e.data.lang;
+    // Update dotMeshes labels live
+    dotMeshes.forEach(d => {
+      d.currentLabel = getLabel(d.entry);
+    });
+  }
+});
 
 function initScene() {
   renderer = new THREE.WebGLRenderer({ canvas: canvas3D, alpha: true, antialias: true });
@@ -77,7 +181,6 @@ function initScene() {
 
   updateSize();
 
-  // Load country borders (TopoJSON 50m = good detail)
   fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json")
     .then(r => r.json())
     .then(world => {
@@ -93,7 +196,7 @@ function initScene() {
         const { geometry } = feature;
         const polys = geometry.type === "Polygon"
           ? [geometry.coordinates]
-          : geometry.coordinates; // MultiPolygon
+          : geometry.coordinates;
 
         polys.forEach(poly => {
           poly.forEach(ring => {
@@ -103,13 +206,78 @@ function initScene() {
           });
         });
       });
+
+      const dotGeo  = new THREE.SphereGeometry(0.014, 8, 8);
+      const dotMat  = new THREE.MeshBasicMaterial({ color: 0x3b9eff });
+      const glowGeo = new THREE.SphereGeometry(0.022, 8, 8);
+      const glowMatInst = new THREE.MeshBasicMaterial({
+        color: 0x3b9eff,
+        transparent: true,
+        opacity: 0.25,
+      });
+
+      servedCountries.forEach(entry => {
+        const [lat, lon] = entry;
+        const pos = latLonToVec3(lat, lon, 1.005);
+
+        const dot = new THREE.Mesh(dotGeo, dotMat.clone());
+        dot.position.copy(pos);
+        scene.add(dot);
+        dotMeshes.push({ mesh: dot, entry, currentLabel: getLabel(entry) });
+
+        const glow = new THREE.Mesh(glowGeo, glowMatInst.clone());
+        glow.position.copy(pos);
+        scene.add(glow);
+      });
     });
 
   render();
 }
 
+let mouseX = -999, mouseY = -999;
+
+canvas3D.addEventListener("mousemove", e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  const rect = canvas3D.getBoundingClientRect();
+  mouse.x =  ((e.clientX - rect.left)  / rect.width)  * 2 - 1;
+  mouse.y = -((e.clientY - rect.top)   / rect.height) * 2 + 1;
+}, { passive: true });
+
+canvas3D.addEventListener("mouseleave", () => {
+  mouse.set(-999, -999);
+  tooltip.style.display = "none";
+}, { passive: true });
+
+let hoveredDot = null;
+
+function checkHover() {
+  if (!dotMeshes.length) return;
+
+  raycaster.setFromCamera(mouse, camera);
+  const meshes = dotMeshes.map(d => d.mesh);
+  const hits = raycaster.intersectObjects(meshes);
+
+  if (hits.length > 0) {
+    const hit = dotMeshes.find(d => d.mesh === hits[0].object);
+    if (hit) {
+      if (hoveredDot !== hit) {
+        hoveredDot = hit;
+      }
+      tooltip.textContent = hit.currentLabel;
+      tooltip.style.display = "block";
+      tooltip.style.left = mouseX + "px";
+      tooltip.style.top  = mouseY + "px";
+    }
+  } else {
+    hoveredDot = null;
+    tooltip.style.display = "none";
+  }
+}
+
 function render() {
   controls.update();
+  checkHover();
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 }
