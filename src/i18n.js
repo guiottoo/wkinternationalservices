@@ -425,6 +425,7 @@ export const SERVICE_CARDS = {
       desc:     'Obtain your retirement visa and live in Brazil with peace of mind and full legal security.',
       accent: '#2c7a7b',
       bg: 'linear-gradient(160deg, #0f2027 0%, #203a43 55%, #2c5364 100%)',
+      img: aposentadoImg,
     },
     {
       slug:     'visto-turista',
@@ -434,6 +435,7 @@ export const SERVICE_CARDS = {
       desc:     'Regularize your tourist visa and enjoy everything Brazil has to offer.',
       accent: '#276749',
       bg: 'linear-gradient(160deg, #001a0d 0%, #003d1f 55%, #00592d 100%)',
+      img: turistaImg,
     },
     {
       slug:     'reuniao-familiar',
@@ -443,6 +445,7 @@ export const SERVICE_CARDS = {
       desc:     'Obtain residence authorization in Brazil to safely reunite with your family.',
       accent: '#b7791f',
       bg: 'linear-gradient(160deg, #1a0e00 0%, #3d2200 55%, #6b3a00 100%)',
+      img: residenciaImg,
     },
     {
       slug:     'acordos-tratados',
@@ -452,6 +455,7 @@ export const SERVICE_CARDS = {
       desc:     'Take advantage of bilateral agreements and international treaties to obtain residence in Brazil.',
       accent: '#5a4fcf',
       bg: 'linear-gradient(160deg, #0d0d1a 0%, #1a1a3e 55%, #2a2a6e 100%)',
+      img: tratadosImg,
     },
   ],
   es: [
@@ -513,6 +517,7 @@ export const SERVICE_CARDS = {
       desc:     'Obtén tu visa de jubilado y vive en Brasil con tranquilidad y seguridad jurídica.',
       accent: '#2c7a7b',
       bg: 'linear-gradient(160deg, #0f2027 0%, #203a43 55%, #2c5364 100%)',
+      img: aposentadoImg,
     },
     {
       slug:     'visto-turista',
@@ -522,6 +527,7 @@ export const SERVICE_CARDS = {
       desc:     'Regulariza tu visa de turista y disfruta todo lo que Brasil tiene para ofrecer.',
       accent: '#276749',
       bg: 'linear-gradient(160deg, #001a0d 0%, #003d1f 55%, #00592d 100%)',
+      img: turistaImg,
     },
     {
       slug:     'reuniao-familiar',
@@ -531,6 +537,7 @@ export const SERVICE_CARDS = {
       desc:     'Obtén autorización de residencia en Brasil para reunirte con tu familia de forma segura.',
       accent: '#b7791f',
       bg: 'linear-gradient(160deg, #1a0e00 0%, #3d2200 55%, #6b3a00 100%)',
+      img: residenciaImg,
     },
     {
       slug:     'acordos-tratados',
@@ -540,6 +547,7 @@ export const SERVICE_CARDS = {
       desc:     'Aprovecha acuerdos bilaterales y tratados internacionales para obtener tu residencia en Brasil.',
       accent: '#5a4fcf',
       bg: 'linear-gradient(160deg, #0d0d1a 0%, #1a1a3e 55%, #2a2a6e 100%)',
+      img: tratadosImg,
     },
   ],
   ru: [
@@ -601,6 +609,7 @@ export const SERVICE_CARDS = {
       desc:     'Получите пенсионную визу и живите в Бразилии спокойно и с полной правовой защитой.',
       accent: '#2c7a7b',
       bg: 'linear-gradient(160deg, #0f2027 0%, #203a43 55%, #2c5364 100%)',
+      img: aposentadoImg,
     },
     {
       slug:     'visto-turista',
@@ -610,6 +619,7 @@ export const SERVICE_CARDS = {
       desc:     'Оформите туристическую визу и наслаждайтесь всем лучшим, что предлагает Бразилия.',
       accent: '#276749',
       bg: 'linear-gradient(160deg, #001a0d 0%, #003d1f 55%, #00592d 100%)',
+      img: turistaImg,
     },
     {
       slug:     'reuniao-familiar',
@@ -619,6 +629,7 @@ export const SERVICE_CARDS = {
       desc:     'Получите ВНЖ в Бразилии для безопасного воссоединения с семьёй.',
       accent: '#b7791f',
       bg: 'linear-gradient(160deg, #1a0e00 0%, #3d2200 55%, #6b3a00 100%)',
+      img: residenciaImg,
     },
     {
       slug:     'acordos-tratados',
@@ -628,6 +639,7 @@ export const SERVICE_CARDS = {
       desc:     'Воспользуйтесь двусторонними соглашениями и международными договорами для получения ВНЖ в Бразилии.',
       accent: '#5a4fcf',
       bg: 'linear-gradient(160deg, #0d0d1a 0%, #1a1a3e 55%, #2a2a6e 100%)',
+      img: tratadosImg,
     },
   ],
 }
