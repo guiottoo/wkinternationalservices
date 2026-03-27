@@ -8,13 +8,14 @@ import imgMatheus from '../assets/matheus.jpg'
 import imgLuciana from '../assets/luciana.jpg'
 import imgVitoria from '../assets/vitoria.jpg'
 import imgPedro   from '../assets/pedro.jpg'
+import imgMariana from '../assets/mariana.jpg'
 
 const MEMBERS = [
   { name: 'Wilian Knoner Campos',  roleKey: 'roleDirector',      bg: 'linear-gradient(160deg, #0f2027 0%, #203a43 55%, #2c5364 100%)', img: imgWilian  },
   { name: 'Matheus Berger Severo', roleKey: 'roleGerente',       bg: 'linear-gradient(160deg, #0d0d1a 0%, #1a1a3e 55%, #2a2a6e 100%)', img: imgMatheus },
   { name: 'Luciana Pena',          roleKey: 'roleConsultora',    bg: 'linear-gradient(160deg, #001a0d 0%, #003d1f 55%, #00592d 100%)', img: imgLuciana },
   { name: 'Vitória Guarnieri',     roleKey: 'roleConsultoraAdm', bg: 'linear-gradient(160deg, #1a0e00 0%, #3d2200 55%, #6b3a00 100%)', img: imgVitoria },
-  { name: 'Marina Casagrande',     roleKey: 'roleAdvogada',      bg: 'linear-gradient(160deg, #0d1a1a 0%, #1a3d3d 55%, #1a5959 100%)', img: null       },
+  { name: 'Marina Casagrande',     roleKey: 'roleAdvogada',      bg: 'linear-gradient(160deg, #0d1a1a 0%, #1a3d3d 55%, #1a5959 100%)', img: imgMariana },
   { name: 'Pedro Welter Henkes',   roleKey: 'roleAssessor',      bg: 'linear-gradient(160deg, #1a0008 0%, #3d0016 55%, #6b0028 100%)', img: imgPedro   },
 ]
 

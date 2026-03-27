@@ -72,7 +72,7 @@ export default function OQueFazemos({ lang }) {
   }, [])
 
   return (
-    <section className="section-earth">
+    <section id="quem-somos" className="section-earth">
       <div className="section2-container">
 
         {/* Stats row — animated counters */}
