@@ -7,8 +7,8 @@ const OFFICES = [
     building: 'Avenida Paulista',
     address:  'Av. Paulista, 1471, Sala 317',
     cep:      'CEP: 01311-927 — Bela Vista, São Paulo — SP',
-    tel:      '+55 (48) 98876-2775',
-    telHref:  '+5548988762775',
+    tel:      '+55 (48) 99640-0540',
+    telHref:  '+5548996400540',
     mapSrc:   'https://maps.google.com/maps?q=Av.+Paulista+1471+São+Paulo+SP+Brazil&output=embed&hl=pt',
   },
   {

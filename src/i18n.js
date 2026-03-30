@@ -1,13 +1,13 @@
 /* ── i18n — all translations, language list and services ──────── */
-import naturalizacaoImg from './assets/card-naturalizacao.jpg'
-import traducaoImg from './assets/card-traducao-juramentada.jpg'
-import investidorImg from './assets/card-investidor-imobiliario.jpg'
-import estudanteImg from './assets/card-visto-de-estudante.png'
-import nomadeImg        from './assets/card-nomad-digital.png'
-import aposentadoImg    from './assets/card-aposentado.jpg'
-import turistaImg       from './assets/card-turista.jpg'
-import residenciaImg    from './assets/card-residencia.jpg'
-import tratadosImg      from './assets/card-tratados.jpg'
+import naturalizacaoImg from './assets/card-naturalizacao.jpeg'
+import traducaoImg from './assets/card-traducao-juramentada.jpeg'
+import investidorImg from './assets/card-investidor-imobiliario.jpeg'
+import estudanteImg from './assets/card-visto-de-estudante.jpeg'
+import nomadeImg        from './assets/card-nomad-digital.webp'
+import aposentadoImg    from './assets/card-aposentado.jpeg'
+import turistaImg       from './assets/card-turista.jpeg'
+import residenciaImg    from './assets/card-residencia.jpeg'
+import tratadosImg      from './assets/card-tratados.jpeg'
 
 export const LANGS = [
   { code: 'pt', flag: '🇧🇷', label: 'PT' },
@@ -45,7 +45,7 @@ export const T = {
     roleConsultora:   'Immigration Consultant',
     roleConsultoraAdm:'Immigration Consultant & Administrative Assistant',
     roleAdvogada:     'Lawyer',
-    roleAssessor:     'Legal Advisor',
+    roleAssessor:     'Legal Advisor & Naturalization Specialist',
     contact:         'Contact',
     servicesTagline: 'Everything you need to live and work in Brazil.',
     svcCta:          'Learn More',
@@ -105,7 +105,7 @@ export const T = {
     roleConsultora:   'Consultora de Imigração',
     roleConsultoraAdm:'Consultora de Imigração e Assistente Administrativa',
     roleAdvogada:     'Advogada',
-    roleAssessor:     'Assessor Jurídico',
+    roleAssessor:     'Assessor Jurídico & Especialista em Naturalização',
     contact:         'Contato',
     servicesTagline: 'Tudo que você precisa para viver e trabalhar no Brasil.',
     svcCta:          'Saiba Mais',
@@ -165,7 +165,7 @@ export const T = {
     roleConsultora:   'Consultora de Inmigración',
     roleConsultoraAdm:'Consultora de Inmigración y Asistente Administrativa',
     roleAdvogada:     'Abogada',
-    roleAssessor:     'Asesor Jurídico',
+    roleAssessor:     'Asesor Jurídico & Especialista en Naturalización',
     contact:         'Contacto',
     servicesTagline: 'Todo lo que necesitas para vivir y trabajar en Brasil.',
     svcCta:          'Saber Más',
@@ -225,7 +225,7 @@ export const T = {
     roleConsultora:   'Консультант по иммиграции',
     roleConsultoraAdm:'Консультант по иммиграции и административный ассистент',
     roleAdvogada:     'Адвокат',
-    roleAssessor:     'Юрисконсульт',
+    roleAssessor:     'Юрисконсульт & Специалист по натурализации',
     contact:         'Контакт',
     servicesTagline: 'Всё, что нужно для жизни и работы в Бразилии.',
     svcCta:          'Узнать больше',

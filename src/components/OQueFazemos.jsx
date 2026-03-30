@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import br04Img from '../assets/br-04.png'
+import br04Img from '../assets/br-04.webp'
 import { T } from '../i18n'
 
 /* ── Count-up hook ──────────────────────────────────────────────── *
