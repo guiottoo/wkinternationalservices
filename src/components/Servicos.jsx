@@ -45,7 +45,7 @@ function ServiceCard({ card, active, ctaLabel }) {
           <h3 className="svc-card__title">{card.title}</h3>
           <p className="svc-card__mini">{card.mini}</p>
           <p className="svc-card__desc">{card.desc}</p>
-          <a href={`#${card.slug}`} className="svc-card__cta">{ctaLabel}</a>
+          <a href={`/${card.slug}`} className="svc-card__cta">{ctaLabel}</a>
         </div>
       </div>
     </article>
