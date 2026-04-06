@@ -11,5 +11,3 @@
 /nosso-time                         /equipe                     301
 /contato-pagina                     /contato                    301
 
-# ── SPA fallback (must be last) ─────────────────────────────────
-/*                                  /index.html                 200
