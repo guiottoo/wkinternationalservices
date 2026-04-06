@@ -55,7 +55,7 @@ export default function ServicePage({ slug, lang, setLang }) {
       <div style={{ minHeight: '100vh', background: '#f9f9f9', display: 'flex',
                     flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
         <p style={{ color: 'rgba(0,0,0,0.4)', margin: 0 }}>Página não encontrada.</p>
-        <a href="#" style={{ color: '#0d0d0d', fontSize: '0.85rem' }}>← Voltar</a>
+        <a href="/" style={{ color: '#0d0d0d', fontSize: '0.85rem' }}>← Voltar</a>
       </div>
     )
   }
@@ -151,7 +151,7 @@ export default function ServicePage({ slug, lang, setLang }) {
         <div className="svc-cta-inner" data-reveal>
           <h2 className="svc-page__cta-title">{pageData.contactTitle}</h2>
           <p className="svc-page__cta-subtitle">{pageData.contactSubtitle}</p>
-          <a href="#contato-pagina" className="svc-page__cta-btn">
+          <a href="/contato" className="svc-page__cta-btn">
             {t.contact} →
           </a>
         </div>

@@ -1,0 +1,15 @@
+# ── Redirects 301 — Wix legacy URLs ────────────────────────────
+/servicos                           /                           301
+/consultoria-imigratoria-completa   /naturalizacao              301
+/consultoria-es                     /naturalizacao              301
+/emissao-renovacao-do-rne           /cnh-cpf                    301
+/vistos-para-estrangeiros           /visto-investidor           301
+/service-page                       /naturalizacao              301
+/wk                                 /                           301
+
+# ── Internal slug aliases ───────────────────────────────────────
+/nosso-time                         /equipe                     301
+/contato-pagina                     /contato                    301
+
+# ── SPA fallback (must be last) ─────────────────────────────────
+/*                                  /index.html                 200

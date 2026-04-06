@@ -16,21 +16,21 @@ import { SERVICE_SLUGS, SERVICE_CARDS, T } from './i18n'
 import './App.css'
 import './responsive.css'
 
-const ALL_SLUGS = [...SERVICE_SLUGS, 'nosso-time', 'equipe', 'blog', 'contato-pagina']
+const ALL_SLUGS = [...SERVICE_SLUGS, 'nosso-time', 'equipe', 'blog', 'contato']
 
-function getSlugFromHash() {
-  const hash = window.location.hash.slice(1)
-  return ALL_SLUGS.includes(hash) ? hash : null
+function getSlugFromPath() {
+  const path = window.location.pathname.replace(/^\//, '').replace(/\/$/, '')
+  return ALL_SLUGS.includes(path) ? path : null
 }
 
 export default function App() {
   const [lang, setLang] = useState('pt')
-  const [slug, setSlug] = useState(getSlugFromHash)
+  const [slug, setSlug] = useState(getSlugFromPath)
 
   useEffect(() => {
-    const onHashChange = () => setSlug(getSlugFromHash())
-    window.addEventListener('hashchange', onHashChange)
-    return () => window.removeEventListener('hashchange', onHashChange)
+    const onPopState = () => setSlug(getSlugFromPath())
+    window.addEventListener('popstate', onPopState)
+    return () => window.removeEventListener('popstate', onPopState)
   }, [])
 
   // Scroll to top on page change
@@ -49,7 +49,7 @@ export default function App() {
       suffix = ` | ${t.equipe || 'Nossa Equipe'}`
     } else if (slug === 'blog') {
       suffix = ' | Blog'
-    } else if (slug === 'contato-pagina') {
+    } else if (slug === 'contato') {
       suffix = ` | ${t.contact || 'Contato'}`
     } else {
       const card = (SERVICE_CARDS[lang] || SERVICE_CARDS.pt).find(c => c.slug === slug)
@@ -84,7 +84,7 @@ export default function App() {
     }
   }, [slug])
 
-  if (slug === 'contato-pagina') return <ContactPage lang={lang} setLang={setLang} />
+  if (slug === 'contato')     return <ContactPage  lang={lang} setLang={setLang} />
   if (slug === 'nosso-time') return <NossoTimePage lang={lang} setLang={setLang} />
   if (slug === 'equipe')     return <EquipePage    lang={lang} setLang={setLang} />
   if (slug === 'blog')       return <BlogPage      lang={lang} setLang={setLang} />

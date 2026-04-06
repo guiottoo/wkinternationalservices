@@ -54,7 +54,7 @@ export default function NossoTimePage({ lang, setLang }) {
         lineHeight: 1.7,
       }}>
         <p>Em breve — conheça o time de especialistas por trás da WK.</p>
-        <a href="#" style={{ color: '#6e9ef0', fontSize: '0.9rem', textDecoration: 'none', marginTop: 32, display: 'inline-block' }}>
+        <a href="/" style={{ color: '#6e9ef0', fontSize: '0.9rem', textDecoration: 'none', marginTop: 32, display: 'inline-block' }}>
           ← Voltar
         </a>
       </main>

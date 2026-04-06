@@ -44,7 +44,7 @@ function ServicesDropdown({ lang }) {
       {open && (
         <div className="services-dropdown">
           {items.map((item, i) => (
-            <a key={i} href={`#${SERVICE_SLUGS[i]}`} className="services-item"
+            <a key={i} href={`/${SERVICE_SLUGS[i]}`} className="services-item"
               onClick={() => setOpen(false)}
             >
               {item}
@@ -118,7 +118,7 @@ function HamburgerMenu({ lang, onChange, t }) {
       {open && createPortal(
         <div className="mobile-menu">
           <div className="mobile-menu-header">
-            <a href="#" onClick={close}><img src={logoImg} alt="WK" className="mobile-menu-logo" /></a>
+            <a href="/" onClick={close}><img src={logoImg} alt="WK" className="mobile-menu-logo" /></a>
             <button className="mobile-menu-close" onClick={close} aria-label="Close menu">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
@@ -127,7 +127,7 @@ function HamburgerMenu({ lang, onChange, t }) {
           </div>
 
           <nav className="mobile-menu-nav">
-            <a href="#quem-somos" className="mobile-menu-item" onClick={close}>{t.whoWeAre}</a>
+            <a href="/#quem-somos" className="mobile-menu-item" onClick={close}>{t.whoWeAre}</a>
 
             <button
               className="mobile-menu-item mobile-svc-trigger"
@@ -139,13 +139,13 @@ function HamburgerMenu({ lang, onChange, t }) {
             {servicesOpen && (
               <div className="mobile-svc-list">
                 {(SERVICES[lang] || SERVICES.pt).map((item, i) => (
-                  <a key={i} href={`#${SERVICE_SLUGS[i]}`} className="mobile-svc-item" onClick={close}>{item}</a>
+                  <a key={i} href={`/${SERVICE_SLUGS[i]}`} className="mobile-svc-item" onClick={close}>{item}</a>
                 ))}
               </div>
             )}
 
-            <a href="#equipe" className="mobile-menu-item" onClick={close}>{t.equipe}</a>
-            <a href="#blog" className="mobile-menu-item" onClick={close}>{t.blog}</a>
+            <a href="/equipe" className="mobile-menu-item" onClick={close}>{t.equipe}</a>
+            <a href="/blog" className="mobile-menu-item" onClick={close}>{t.blog}</a>
 
             <div className="mobile-lang-row">
               <LangSelector lang={lang} onChange={onChange} />
@@ -153,7 +153,7 @@ function HamburgerMenu({ lang, onChange, t }) {
           </nav>
 
           <div className="mobile-menu-footer">
-            <a href="#contato-pagina" className="mobile-menu-cta" onClick={close}>{t.contact}</a>
+            <a href="/contato" className="mobile-menu-cta" onClick={close}>{t.contact}</a>
           </div>
         </div>,
         document.body
@@ -169,14 +169,14 @@ export default function Navbar({ lang, setLang, logoDark }) {
   return (
     <div className="nav-wrapper">
       <nav className="liquid-glass-nav">
-        <a href="#"><img src={logoImg} alt="WK Logo" className={`nav-logo${logoDark ? ' nav-logo--dark' : ''}`} /></a>
+        <a href="/"><img src={logoImg} alt="WK Logo" className={`nav-logo${logoDark ? ' nav-logo--dark' : ''}`} /></a>
         <div className="nav-links">
-          <a href="#quem-somos" className="nav-link-item">{t.whoWeAre}</a>
+          <a href="/#quem-somos" className="nav-link-item">{t.whoWeAre}</a>
           <ServicesDropdown lang={lang} />
-          <a href="#equipe" className="nav-link-item">{t.equipe}</a>
-          <a href="#blog" className="nav-link-item">{t.blog}</a>
+          <a href="/equipe" className="nav-link-item">{t.equipe}</a>
+          <a href="/blog" className="nav-link-item">{t.blog}</a>
           <LangSelector lang={lang} onChange={setLang} />
-          <a href="#contato-pagina" className="nav-cta-link">{t.contact}</a>
+          <a href="/contato" className="nav-cta-link">{t.contact}</a>
         </div>
         <HamburgerMenu lang={lang} onChange={setLang} t={t} />
       </nav>
