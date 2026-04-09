@@ -37,12 +37,12 @@ function GoogleMark() {
 
 /* ── Review static data (name / country) ─────────────────────── */
 const REVIEW_META = [
-  { name: 'Natalia Volkova', country: '🇷🇺 Rússia'    },
-  { name: 'Carlos Mendoza',  country: '🇦🇷 Argentina' },
-  { name: 'Priya Sharma',    country: '🇮🇳 Índia'     },
-  { name: 'Aleksei Petrov',  country: '🇷🇺 Rússia'    },
-  { name: 'Sofia Chen',      country: '🇨🇳 China'     },
-  { name: 'Marco Rossi',     country: '🇮🇹 Itália'    },
+  { name: 'Janise S'       },
+  { name: 'Mustafa Polat'  },
+  { name: 'Sarosh Hassan'  },
+  { name: 'Felipe da Paz'  },
+  { name: 'JimBo Dood'     },
+  { name: 'Lucas Adriano'  },
 ]
 
 /* ── ReviewCard ───────────────────────────────────────────────── */
@@ -53,7 +53,6 @@ function ReviewCard({ review, delay }) {
         <UserIcon />
         <div className="review-card__meta">
           <span className="review-name">{review.name}</span>
-          <span className="review-country">{review.country}</span>
         </div>
         <div className="review-card__google">
           <GoogleMark />
