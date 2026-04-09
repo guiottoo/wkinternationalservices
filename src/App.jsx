@@ -7,6 +7,7 @@ import Escritorios  from './components/Escritorios'
 import Avaliacoes   from './components/Avaliacoes'
 import Contato      from './components/Contato'
 import Footer       from './components/Footer'
+import WhatsAppFloat from './components/WhatsAppFloat'
 import ServicePage   from './pages/ServicePage'
 import NossoTimePage from './pages/NossoTimePage'
 import EquipePage    from './pages/EquipePage'
@@ -84,14 +85,15 @@ export default function App() {
     }
   }, [slug])
 
-  if (slug === 'contato')     return <ContactPage  lang={lang} setLang={setLang} />
-  if (slug === 'nosso-time') return <NossoTimePage lang={lang} setLang={setLang} />
-  if (slug === 'equipe')     return <EquipePage    lang={lang} setLang={setLang} />
-  if (slug === 'blog')       return <BlogPage      lang={lang} setLang={setLang} />
-  if (slug)                  return <ServicePage   slug={slug} lang={lang} setLang={setLang} />
+  if (slug === 'contato')     return <><WhatsAppFloat /><ContactPage  lang={lang} setLang={setLang} /></>
+  if (slug === 'nosso-time') return <><WhatsAppFloat /><NossoTimePage lang={lang} setLang={setLang} /></>
+  if (slug === 'equipe')     return <><WhatsAppFloat /><EquipePage    lang={lang} setLang={setLang} /></>
+  if (slug === 'blog')       return <><WhatsAppFloat /><BlogPage      lang={lang} setLang={setLang} /></>
+  if (slug)                  return <><WhatsAppFloat /><ServicePage   slug={slug} lang={lang} setLang={setLang} /></>
 
   return (
     <>
+      <WhatsAppFloat />
       <Hero        lang={lang} setLang={setLang} />
       <OQueFazemos lang={lang} />
       <Servicos    lang={lang} />
