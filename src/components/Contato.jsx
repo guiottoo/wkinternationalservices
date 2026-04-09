@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { T } from '../i18n'
 import EarthGlobe from './EarthGlobe'
 
-export default function Contato({ lang, headline, sideGlobe }) {
+export default function Contato({ lang, headline, subtitle, sideGlobe, showStats }) {
   const t = T[lang]
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' })
   const [status, setStatus] = useState('idle') // idle | sending | sent | error
@@ -45,6 +45,7 @@ export default function Contato({ lang, headline, sideGlobe }) {
         <div className="contact-left" data-reveal>
           {!headline && <span className="contact-badge">{t.contactBadge}</span>}
           <h2 className="contact-headline">{headline || t.contactHeadline}</h2>
+          {subtitle && <p className="contact-sub">{subtitle}</p>}
           {!headline && <p className="contact-sub">{t.contactSub}</p>}
           {!headline && <p className="contact-free">{t.contactFree}</p>}
           {!headline && <p className="contact-langs">{t.contactLangs}</p>}
@@ -55,6 +56,24 @@ export default function Contato({ lang, headline, sideGlobe }) {
           </div>
         )}
       </div>
+
+      {/* ── Stats ── */}
+      {showStats && (
+        <div className="contact-stats" data-reveal data-delay="1">
+          <div className="contact-stat">
+            <span className="contact-stat__val">{t.stat1Val}</span>
+            <span className="contact-stat__label">{t.stat1Label}</span>
+          </div>
+          <div className="contact-stat">
+            <span className="contact-stat__val">{t.stat2Val}</span>
+            <span className="contact-stat__label">{t.stat2Label}</span>
+          </div>
+          <div className="contact-stat">
+            <span className="contact-stat__val">{t.stat3Val}</span>
+            <span className="contact-stat__label">{t.stat3Label}</span>
+          </div>
+        </div>
+      )}
 
       {/* ── Form card ── */}
       <div className="contact-form-card" data-reveal data-delay="2">
