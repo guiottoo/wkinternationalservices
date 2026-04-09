@@ -46,6 +46,22 @@ export default function Contato({ lang, headline, subtitle, sideGlobe, showStats
           {!headline && <span className="contact-badge">{t.contactBadge}</span>}
           <h2 className="contact-headline">{headline || t.contactHeadline}</h2>
           {subtitle && <p className="contact-sub">{subtitle}</p>}
+          {showStats && (
+            <div className="contact-stats">
+              <div className="contact-stat">
+                <span className="contact-stat__val">{t.stat1Val}</span>
+                <span className="contact-stat__label">{t.stat1Label}</span>
+              </div>
+              <div className="contact-stat">
+                <span className="contact-stat__val">{t.stat2Val}</span>
+                <span className="contact-stat__label">{t.stat2Label}</span>
+              </div>
+              <div className="contact-stat">
+                <span className="contact-stat__val">{t.stat3Val}</span>
+                <span className="contact-stat__label">{t.stat3Label}</span>
+              </div>
+            </div>
+          )}
           {!headline && <p className="contact-sub">{t.contactSub}</p>}
           {!headline && <p className="contact-free">{t.contactFree}</p>}
           {!headline && <p className="contact-langs">{t.contactLangs}</p>}
@@ -57,23 +73,6 @@ export default function Contato({ lang, headline, subtitle, sideGlobe, showStats
         )}
       </div>
 
-      {/* ── Stats ── */}
-      {showStats && (
-        <div className="contact-stats" data-reveal data-delay="1">
-          <div className="contact-stat">
-            <span className="contact-stat__val">{t.stat1Val}</span>
-            <span className="contact-stat__label">{t.stat1Label}</span>
-          </div>
-          <div className="contact-stat">
-            <span className="contact-stat__val">{t.stat2Val}</span>
-            <span className="contact-stat__label">{t.stat2Label}</span>
-          </div>
-          <div className="contact-stat">
-            <span className="contact-stat__val">{t.stat3Val}</span>
-            <span className="contact-stat__label">{t.stat3Label}</span>
-          </div>
-        </div>
-      )}
 
       {/* ── Form card ── */}
       <div className="contact-form-card" data-reveal data-delay="2">
