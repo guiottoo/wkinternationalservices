@@ -40,8 +40,8 @@ export default function Contato({ lang, headline, subtitle, sideGlobe, showStats
   return (
     <section id="contato" className="section-contact">
 
-      {/* ── Top: text left + globe right (when no headline) ── */}
-      <div className={`contact-top${!headline ? ' contact-top--side' : ''}`}>
+      {/* ── Top: text left + globe right ── */}
+      <div className={`contact-top${sideGlobe ? ' contact-top--side' : ''}`}>
         <div className="contact-left" data-reveal>
           {!headline && <span className="contact-badge">{t.contactBadge}</span>}
           <h2 className="contact-headline">{headline || t.contactHeadline}</h2>
@@ -50,7 +50,7 @@ export default function Contato({ lang, headline, subtitle, sideGlobe, showStats
           {!headline && <p className="contact-free">{t.contactFree}</p>}
           {!headline && <p className="contact-langs">{t.contactLangs}</p>}
         </div>
-        {!headline && (
+        {sideGlobe && (
           <div className="contact-globe contact-globe--right" data-reveal data-delay="1">
             <EarthGlobe lang={lang} />
           </div>
