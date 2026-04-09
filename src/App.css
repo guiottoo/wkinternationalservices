@@ -1921,7 +1921,7 @@
   background-repeat: repeat, repeat;
 }
 
-/* ── Top band: globe above, then text ────────────────────── */
+/* ── Top band: text left + globe right ───────────────────── */
 .contact-top {
   position: relative;
   z-index: 1;
@@ -1929,36 +1929,25 @@
   margin: 0 auto;
   padding: 0 var(--side-pad);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-}
-
-.contact-globe {
-  width: 420px;
-  max-width: 100%;
-  flex-shrink: 0;
-}
-
-.contact-globe .earth-globe-wrap {
-  width: 100%;
-  height: 420px;
-}
-
-/* Side-by-side layout (contact page) */
-.contact-top--side {
   flex-direction: row;
   align-items: center;
   gap: 56px;
 }
 
-.contact-top--side .contact-left {
+.contact-top .contact-left {
   flex: 1;
 }
 
+.contact-globe {
+  width: 400px;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.contact-globe .earth-globe-wrap,
 .contact-globe--right .earth-globe-wrap {
-  width: 420px;
-  height: 420px;
+  width: 400px;
+  height: 400px;
 }
 
 .contact-left {
