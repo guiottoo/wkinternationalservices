@@ -61,7 +61,7 @@ export default function Footer({ lang }) {
           <ul className="footer-col__list">
             {services.map((s, i) => (
               <li key={i}>
-                <a href={`#${SERVICE_SLUGS[i]}`} className="footer-col__link">{s}</a>
+                <a href={`/${SERVICE_SLUGS[i]}`} className="footer-col__link">{s}</a>
               </li>
             ))}
           </ul>
@@ -72,10 +72,10 @@ export default function Footer({ lang }) {
           <h4 className="footer-col__title">{t.officesTitle}</h4>
           <ul className="footer-col__list">
             <li><span className="footer-col__text">São Paulo — SP</span></li>
-            <li><a href="tel:+5548996400540" className="footer-col__link">+55 (48) 99640-0540</a></li>
+            <li><a href="https://wa.me/5548996400540" className="footer-col__link" target="_blank" rel="noopener noreferrer">+55 (48) 99640-0540</a></li>
             <li className="footer-col__spacer" />
             <li><span className="footer-col__text">Florianópolis — SC</span></li>
-            <li><a href="tel:+5548996400540" className="footer-col__link">+55 (48) 99640-0540</a></li>
+            <li><a href="https://wa.me/5548996400540" className="footer-col__link" target="_blank" rel="noopener noreferrer">+55 (48) 99640-0540</a></li>
           </ul>
         </div>
 
